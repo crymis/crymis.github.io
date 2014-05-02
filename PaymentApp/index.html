@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de" data-ng-app="paymentApp">
+<head>
+	<meta charset="utf-8">
+	<title>MyFirstWebApplication</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+</head>
+<body id="bg">
+
+	<section id="paymentApp">
+		<img src="img/euros22.png" alt="Logo" id="logo">
+		<div class="center">
+			<form class="wrapper">
+				<h1>Bezahl mich!</h1>
+				<label class="entry" alt="Summe auf dem Einkaufszettel ganz unten">
+					<i class="glyphicon glyphicon-barcode"> Summe:</i>
+					<input type="number" step="any" data-ng-model="sum" required> €
+				</label>
+				<label class="entry" alt="Preis alle Dinge desjenigen, der bereits bezahlt hat">
+					<i class="glyphicon glyphicon-log-in"> Bezahlender:</i>
+					<input type="number" min="0" step="any" data-ng-model="payer" required> €
+				</label>
+				<label class="entry" alt="Preis aller Dinge desjenigen, der noch zahlen muss">
+					<i class="glyphicon glyphicon-log-out"> Nachbezahlender:</i>
+					<input type="number" min="0" step="any" data-ng-model="afterPayer" required> €
+				</label>
+
+				<!-- Result, shown if every entry is filled -->
+				<label class="output" data-ng-show="sum && payer && afterPayer">
+					<hr id="line">
+					<i class="glyphicon glyphicon-transfer"> Zu zahlen:</i>
+					<span data-ng-show="sum-payer+afterPayer < 0">- </span>{{ (sum-payer+afterPayer)/2 | currency: "€"}}
+				</label>
+
+				<!-- Error Message, shown if something is missing -->
+				<p>
+					<center data-ng-show="!(sum && payer && afterPayer)" class="info">
+						Fülle alle Felder mit den Werten :)
+					</center>
+				</p>
+
+			</form>
+		</div>
+	</section>
+
+	<script src="libs/angular_1-2-16.min.js"></script>
+	<script src="libs/angular-animate_1-2-16.min.js"></script>
+	<script src="app.js"></script>
+	<script src="controller/AppCtrl.js"></script>
+</body>
+</html>

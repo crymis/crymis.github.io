@@ -1,0 +1,77 @@
+#bg{
+	background-color: #ffe25b;
+}
+
+h1, .h1{
+	margin:15% !important;
+	color: #59575a;
+}
+
+.info{
+	font-size: 1em;
+	font-family: verdana;
+	color: #59575a;
+	margin-top: 2em;
+}
+
+
+#line{
+	border-top: 1px solid #59575a;
+}
+
+input{
+	width: 70px;
+}
+
+i{
+	width:225px;
+	font-size: 1.5em;
+	font-family: verdana;
+	color: #59575a;
+}
+
+.center{
+	position: fixed;
+	left: 50%;
+}
+
+.center .wrapper{
+	position: relative;
+	left: -50%;
+	margin-top: 40%;
+}
+
+#logo{
+	position: absolute;
+	top: 4%;
+	left: 60%;
+	width: 200px;
+	height: auto;
+}
+
+.entry{
+	display: block;
+	margin: 10px;
+}
+
+.output{
+	display:block;
+	margin-top:10%;
+}
+
+/* ngAnimate */
+
+.output.ng-enter, .output.ng-leave {
+	-webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+  display: block !important;
+} 
+
+.output.ng-enter.ng-enter-active, .output.ng-leave {
+  opacity: 1;
+}
+.output.ng-leave.ng-leave-active, .output.ng-enter {
+  opacity: 0;
+}
+
+}
