@@ -79,27 +79,41 @@ i{
 
 @media screen and
 (max-width: 319px) {
+	h1{
+		font-size: 1.8em !important;
+		margin-top: 5% !important;
+	}
+
 	#logo {
 		width: 100px;
 		height: auto;
-		top: 1%;
-		left: 40%;
+		top: auto;
+		left: 35%;
 	}
 
 	i{
 		font-size: 1.4em;
 		width: 182px;
 	}
+
+	.center .wrapper{
+		margin-top: 25%;
+	}
 }
 
 @media screen and
 (min-width: 320px) and
 (max-width:480px) {
+
 	#logo {
 		width: 100px;
 		height: auto;
-		top: 1%;
+		top: auto;
 		left: 40%;
+	}
+
+	.center .wrapper{
+		margin-top: 25%;
 	}
 }
 
