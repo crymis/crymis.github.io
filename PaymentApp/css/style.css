@@ -42,7 +42,7 @@ i{
 }
 
 #logo{
-	position: absolute;
+	position: fixed;
 	top: 4%;
 	left: 60%;
 	width: 200px;
@@ -52,6 +52,7 @@ i{
 .entry{
 	display: block;
 	margin: 10px;
+	width: 315px;
 }
 
 .output{
@@ -74,4 +75,38 @@ i{
   opacity: 0;
 }
 
+/* Responsive Design */
+
+@media screen and
+(max-width: 319px) {
+	#logo {
+		width: 100px;
+		height: auto;
+		top: 1%;
+		left: 40%;
+	}
+
+	i{
+		font-size: 1.4em;
+		width: 182px;
+	}
+}
+
+@media screen and
+(min-width: 320px) and
+(max-width:480px) {
+	#logo {
+		width: 100px;
+		height: auto;
+		top: 1%;
+		left: 40%;
+	}
+}
+
+@media screen and 
+(min-width: 481px) and
+(max-width: 768px) {
+	#logo {
+		width: 150px;
+	}
 }
