@@ -11,35 +11,41 @@
 <body id="bg">
 
 	<section id="paymentApp">
-		<center>
+		<div class="centerDiv">
 			<img src="img/euros.png" alt="Logo" id="logo">
-			<h1>Bezahl mich!</h1>
-			<label class="entry" alt="Summe auf dem Einkaufszettel ganz unten">
-				<i class="glyphicon glyphicon-barcode"> Summe:</i>
-				<input type="number" step="any" data-ng-model="sum" required> €
-			</label>
-			<label class="entry" alt="Preis alle Dinge desjenigen, der bereits bezahlt hat">
-				<i class="glyphicon glyphicon-log-in"> Bezahlender:</i>
-				<input type="number" min="0" step="any" data-ng-model="payer" required> €
-			</label>
-			<label class="entry" alt="Preis aller Dinge desjenigen, der noch zahlen muss">
-				<i class="glyphicon glyphicon-log-out"> Nachbezahlender:</i>
-				<input type="number" min="0" step="any" data-ng-model="afterPayer" required> €
-			</label>
+			<div class="centerForm">
+				<div class="centerElement">
+				<h1>Bezahl mich!</h1>
+				</div>
+				<form>
+					<label class="entry" alt="Summe auf dem Einkaufszettel ganz unten">
+						<i class="glyphicon glyphicon-barcode"> Summe:</i>
+						<input type="number" step="any" data-ng-model="sum" required> €
+					</label>
+					<label class="entry" alt="Preis alle Dinge desjenigen, der bereits bezahlt hat">
+						<i class="glyphicon glyphicon-log-in"> Bezahlender:</i>
+						<input type="number" min="0" step="any" data-ng-model="payer" required> €
+					</label>
+					<label class="entry" alt="Preis aller Dinge desjenigen, der noch zahlen muss">
+						<i class="glyphicon glyphicon-log-out"> Nachbezahlender:</i>
+						<input type="number" min="0" step="any" data-ng-model="afterPayer" required> €
+					</label>
+				</form>
 
-			<!-- Result, shown if every entry is filled -->
-			<div data-ng-show="sum != undefined && payer != undefined && afterPayer != undefined && !(sum == 0 && payer == 0 && afterPayer == 0)">
-				<label class="output">
-					<hr id="line">
-					<i class="glyphicon glyphicon-transfer"> Zu zahlen:</i>
-					<span data-ng-show="sum-payer+afterPayer < 0">- </span>{{ (sum-payer+afterPayer)/2 | currency: "€"}}
-				</label>
+				<!-- Result, shown if every entry is filled -->
+				<div data-ng-show="sum != undefined && payer != undefined && afterPayer != undefined && !(sum == 0 && payer == 0 && afterPayer == 0)">
+					<label class="output">
+						<hr id="line">
+						<i class="glyphicon glyphicon-transfer"> Zu zahlen:</i>
+						<span data-ng-show="sum-payer+afterPayer < 0">- </span>{{ (sum-payer+afterPayer)/2 | currency: "€"}}
+					</label>
+				</div>
+				<!-- Error Message, shown if something is missing -->
+				<div data-ng-show="(sum == undefined || payer == undefined || afterPayer == undefined) || (sum == 0 && payer == 0 && afterPayer == 0)" class="info centerElement">
+					Alle Felder müssen sinnvoll befüllt sein ;)
+				</div>
 			</div>
-			<!-- Error Message, shown if something is missing -->
-			<div data-ng-show="(sum == undefined || payer == undefined || afterPayer == undefined) || (sum == 0 && payer == 0 && afterPayer == 0)" class="info">
-						Alle Felder müssen sinnvoll befüllt sein ;)
-			</div>
-		</center>
+		</div>
 	</section>
 
 	<script src="libs/angular_1-2-16.min.js"></script>

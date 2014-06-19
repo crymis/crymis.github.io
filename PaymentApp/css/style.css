@@ -2,26 +2,14 @@
 	background-color: #ffe25b;
 }
 
+body{
+	overflow-x: hidden;
+}
+
 h1, .h1{
-	position: static;
 	margin-top: -50px !important;
 	margin-bottom: 2% !important;
 	color: #59575a;
-}
-
-.info{
-	position: static;
-	font-size: 1em;
-	font-family: verdana;
-	color: #59575a;
-	margin-top: 50px;
-}
-
-
-#line{
-	position: static;
-	width: 360px;
-	border-top: 1px solid #59575a;
 }
 
 input{
@@ -38,35 +26,64 @@ i{
 #logo{
 	width: 120px;
 	height: auto;
-	margin-top: 100px;
-	margin-left: 400px;
+	margin-left: 500px;
+}
+
+#line{
+	width: 360px;
+	border-top: 1px solid #59575a;
+	margin-left: 30px;
+}
+
+.centerDiv{
+	width: 700px;
+	margin: 0 auto;
+}
+
+.centerForm{
+	display: block;
+	margin: 0 auto;
+}
+
+.centerForm form{
+	width: 50%;
+	margin: 0 auto;
+}
+
+.centerElement{
+	margin: 0 auto;
+	text-align: center;
+}
+
+.info{
+	font-size: 1em;
+	font-family: verdana;
+	color: #59575a;
+	margin-top: 30px;
 }
 
 .entry{
-	display: block;
 	margin: 10px;
 	width: 315px;
-	min-width: 315px;
 }
 
 .output{
-	display:block;
-	margin-top:10%;
+	margin-top:20px;
 }
 
 /* ngAnimate (info: doesnt work atm!)*/
 
 .output.ng-enter, .output.ng-leave {
 	-webkit-transition: all linear 0.5s;
-  transition: all linear 0.5s;
-  display: block !important;
+	transition: all linear 0.5s;
+	display: block !important;
 } 
 
 .output.ng-enter.ng-enter-active, .output.ng-leave {
-  opacity: 1;
+	opacity: 1;
 }
 .output.ng-leave.ng-leave-active, .output.ng-enter {
-  opacity: 0;
+	opacity: 0;
 }
 
 /* Responsive Design */
@@ -95,6 +112,10 @@ i{
 		width: 182px;
 	}
 
+	.centerForm form{
+		width: 0;
+	}
+
 }
 
 @media screen and
@@ -106,12 +127,9 @@ i{
 		margin-bottom: 20px !important;
 	}
 
-	.info{
-		display: block;
-		margin-left: 0;
-		margin-top: 25px;
+	i{
+		width: 190px;
 	}
-
 
 	#logo {
 		position: static;
@@ -120,4 +138,21 @@ i{
 		margin-top: 20px;
 		margin-left: 0;
 	}
+
+	.info{
+		display: block;
+		margin-left: 0;
+		margin-top: 25px;
+	}
+
+	.centerDiv{
+		margin:0;
+		width: 100%;
+		border: 1px dotted red;
+	}
+
+	.entry{
+		width: 140%;
+	}
+
 }
