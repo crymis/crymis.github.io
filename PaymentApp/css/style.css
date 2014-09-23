@@ -1,158 +1,85 @@
+
 #bg{
-	background-color: #ffe25b;
+	background-color: #FFE466;
 }
 
-body{
+#paymentApp {
 	overflow-x: hidden;
 }
 
-h1, .h1{
-	margin-top: -50px !important;
-	margin-bottom: 2% !important;
+#logo{
+	display: inline-block;
+	width: auto;
+	height: 40px;
+	margin-top: -16px;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+#line{
+	border-top: 1px solid #59575a;
+}
+
+#footer {
+	font-family: verdana;
+	font-size: 0.8em;
 	color: #59575a;
+	margin-top: 40px;
+	display: block;
+	text-align: center;
 }
 
-input{
-	width: 70px;
+h1 {
+	display: inline;
 }
 
-i{
-	width:225px;
+input {
+	width: 60px;
+}
+
+label > i {
+	width:205px;
 	font-size: 1.5em;
 	font-family: verdana;
 	color: #59575a;
 }
 
-#logo{
-	width: 120px;
-	height: auto;
-	margin-left: 500px;
+i.glyphicon-ok {
+	margin-left: 4px;
 }
 
-#line{
-	width: 360px;
-	border-top: 1px solid #59575a;
+form {
+	margin-top: 30px;
 	margin-left: 30px;
 }
 
-.centerDiv{
-	width: 700px;
-	margin: 0 auto;
-}
-
-.centerForm{
-	display: block;
-	margin: 0 auto;
-}
-
-.centerForm form{
-	width: 50%;
-	margin: 0 auto;
-}
-
-.centerElement{
-	margin: 0 auto;
+.title {
+	margin-top: 10px;
 	text-align: center;
 }
 
 .info{
-	font-size: 1em;
+	font-size: 0.95em;
 	font-family: verdana;
 	color: #59575a;
-	margin-top: 30px;
+	margin-top: 20px;
+	margin-left: 10px;
+	text-align: center;
+}
+
+.content{
+	margin: 0 auto;
+	width: 360px;
+	height: 100%;
 }
 
 .entry{
+	display: block;
 	margin: 10px;
-	width: 315px;
 }
 
 .output{
-	margin-top:20px;
-}
-
-/* ngAnimate (info: doesnt work atm!)*/
-
-.output.ng-enter, .output.ng-leave {
-	-webkit-transition: all linear 0.5s;
-	transition: all linear 0.5s;
-	display: block !important;
-} 
-
-.output.ng-enter.ng-enter-active, .output.ng-leave {
-	opacity: 1;
-}
-.output.ng-leave.ng-leave-active, .output.ng-enter {
-	opacity: 0;
-}
-
-/* Responsive Design */
-
-@media screen and
-(max-width: 319px) {
-	h1{
-		margin-top: 10px !important;
-		margin-bottom: 20px !important;
-	}
-
-	#logo {
-		position: static;
-		width: 60px;
-		height: auto;
-		margin-top: 20px;
-		margin-left: 0;
-	}
-
-	form{
-		margin-left: 0 !important;
-	}
-
-	i{
-		font-size: 1.4em;
-		width: 182px;
-	}
-
-	.centerForm form{
-		width: 0;
-	}
-
-}
-
-@media screen and
-(min-width: 320px) and
-(max-width:480px) {
-
-	h1{
-		margin-top: 10px !important;
-		margin-bottom: 20px !important;
-	}
-
-	i{
-		width: 190px;
-	}
-
-	#logo {
-		position: static;
-		width: 60px;
-		height: auto;
-		margin-top: 20px;
-		margin-left: 0;
-	}
-
-	.info{
-		display: block;
-		margin-left: 0;
-		margin-top: 25px;
-	}
-
-	.centerDiv{
-		margin:0;
-		width: 100%;
-		border: 1px dotted red;
-	}
-
-	.entry{
-		width: 140%;
-	}
-
+	display:block;
+	margin-top: 20px;
+	margin-left: 10px;
 }
