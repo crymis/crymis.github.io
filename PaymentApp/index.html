@@ -27,12 +27,12 @@
 					<i data-ng-show="payForm.sum.$valid" class="glyphicon glyphicon-ok"></i>
 				</label>
 				<label class="entry" alt="Preis alle Dinge desjenigen, der bereits bezahlt hat">
-					<i class="glyphicon glyphicon-log-in"> Bezahlender:</i>
+					<i class="glyphicon glyphicon-log-in"> Zahlender:</i>
 					<input name="payer" type="number" min="0" step="any" data-ng-model="payer" required onclick="this.select()"> €
 					<i data-ng-show="payForm.payer.$valid" class="glyphicon glyphicon-ok"></i>
 				</label>
 				<label class="entry" alt="Preis aller Dinge desjenigen, der noch zahlen muss">
-					<i class="glyphicon glyphicon-log-out"> Nachbezahlender:</i>
+					<i class="glyphicon glyphicon-log-out"> Nachzahlender:</i>
 					<input name="afterPayer" type="number" min="0" step="any" data-ng-model="afterPayer" required onclick="this.select()"> €
 					<i data-ng-show="payForm.afterPayer.$valid" class="glyphicon glyphicon-ok"></i>
 				</label>
