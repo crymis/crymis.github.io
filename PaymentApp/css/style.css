@@ -22,6 +22,11 @@ Date: 02.10.2014
 	vertical-align: middle;
 	margin-right: 10px;
 	margin-left: 10px;
+	transition: all 1s;
+}
+
+#logo:hover {
+	transform: rotate(360deg) scale(1.5);
 }
 
 #line{
