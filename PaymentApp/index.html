@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="de" data-ng-app="paymentApp">
 <head>
+	<!-- Payment App: The app is for easy calculating
+ 	the change of money between two people. When shopping
+	one is paying directly the full price at the checkout. 
+	To find out how many the other owes to the payer, this
+	little app does the rest ;) -->
+	
 	<meta charset="utf-8">
 	<title>PaymentApp (€)</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
@@ -17,24 +23,24 @@
 
 			<div class="title">
 				<img src="img/euros.png" alt="Logo" id="logo">
-				<h1>Pay me!</h1>
+				<h1 class="heading">Pay me!</h1>
 			</div>
 
 			<form name="payForm">
 				<label class="entry" alt="Summe auf dem Einkaufszettel ganz unten">
-					<i class="glyphicon glyphicon-barcode"> Summe:</i>
+					<i class="glyphicon glyphicon-barcode icon"> Summe:</i>
 					<input name="sum" type="number" step="any" data-ng-model="sum" required onclick="this.select()"> €
-					<i data-ng-show="payForm.sum.$valid" class="glyphicon glyphicon-ok"></i>
+					<i data-ng-class="{visible: payForm.sum.$valid}" class="glyphicon glyphicon-ok"></i>
 				</label>
 				<label class="entry" alt="Preis alle Dinge desjenigen, der bereits bezahlt hat">
-					<i class="glyphicon glyphicon-log-in"> Zahlender:</i>
+					<i class="glyphicon glyphicon-log-in icon"> Zahlender:</i>
 					<input name="payer" type="number" min="0" step="any" data-ng-model="payer" required onclick="this.select()"> €
-					<i data-ng-show="payForm.payer.$valid" class="glyphicon glyphicon-ok"></i>
+					<i data-ng-class="{visible: payForm.payer.$valid}" class="glyphicon glyphicon-ok"></i>
 				</label>
 				<label class="entry" alt="Preis aller Dinge desjenigen, der noch zahlen muss">
-					<i class="glyphicon glyphicon-log-out"> Nachzahlender:</i>
+					<i class="glyphicon glyphicon-log-out icon"> Nachzahlender:</i>
 					<input name="afterPayer" type="number" min="0" step="any" data-ng-model="afterPayer" required onclick="this.select()"> €
-					<i data-ng-show="payForm.afterPayer.$valid" class="glyphicon glyphicon-ok"></i>
+					<i data-ng-class="{visible: payForm.afterPayer.$valid}" class="glyphicon glyphicon-ok"></i>
 				</label>
 
 				<!-- Result, shown if every entry is filled -->

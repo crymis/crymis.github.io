@@ -1,3 +1,11 @@
+/* PaymentApp Stylings 
+Creator: Daniel Eckelt
+Date: 02.10.2014
+*/
+
+* {
+	box-sizing: border-box;
+}
 
 #bg{
 	background-color: #FFE466;
@@ -11,7 +19,7 @@
 	display: inline-block;
 	width: auto;
 	height: 40px;
-	margin-top: -16px;
+	vertical-align: middle;
 	margin-right: 10px;
 	margin-left: 10px;
 }
@@ -29,10 +37,6 @@
 	text-align: center;
 }
 
-h1 {
-	display: inline;
-}
-
 input {
 	width: 60px;
 }
@@ -42,20 +46,30 @@ label > i {
 	font-size: 1.5em;
 	font-family: verdana;
 	color: #59575a;
+	text-align: center;
 }
 
 i.glyphicon-ok {
+	opacity: 0;
 	margin-left: 4px;
+}
+
+i.glyphicon-ok.visible {
+	opacity: 1
 }
 
 form {
 	margin-top: 35px;
-	margin-left: 30px;
 }
 
 .title {
 	margin-top: 10px;
 	text-align: center;
+}
+
+.heading {
+	display: inline;
+	vertical-align: middle;
 }
 
 .info{
@@ -68,17 +82,34 @@ form {
 
 .content{
 	margin: 0 auto;
-	width: 360px;
+	max-width: 320px;
 	height: 100%;
 }
 
 .entry{
+	text-align: center;
 	display: block;
-	margin: 10px;
+}
+
+.entry .icon {
+	text-align: left;
 }
 
 .output{
 	display:block;
 	margin-top: 20px;
 	margin-left: 10px;
+}
+
+
+@media(min-width: 960px){
+	.title {
+		margin-top: 30%;
+	}
+}
+
+@media(min-width: 1400px){
+	.title {
+		margin-top: 40%;
+	}
 }
