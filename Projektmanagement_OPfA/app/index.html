@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html data-ng-app="portingGuide">
+<head>
+	<title>PortingGuideline</title>
+	<meta name="viewport" content="width=device-width" user-scalable="no">	
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bandGallery.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+	<header data-ng-include="'views/navbar.html'"></header>
+
+	<div class="container" data-ng-view></div>
+
+	<footer data-ng-include="'views/footer.html'"></footer>
+
+
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/jquery.easing/js/jquery.easing.min.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-route/angular-route.min.js"></script>
+	<script src="bower_components/angular-translate/angular-translate.min.js"></script>
+	<script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+
+	<script src="app.js"></script>
+	<script src="router.js"></script>
+
+	<script src="controllers/LangCtrl.js"></script>
+	<script src="controllers/NavCtrl.js"></script>
+	<script src="controllers/HomeCtrl.js"></script>
+
+	<script src="directives/bandGallery.js"></script>
+
+	<script src="services/ImageService.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<h1 translate="{{'HOME_TITLE'}}"></h1>
+
+<span data-ng-show="!result">
+	<h3 translate="{{'HOME_TITLETEXT'}}"></h3>
+	<p>Bitte füllen Sie mindestens zwei der drei Felder aus.</p>
+
+	<form id="createRequestForm">
+		<div class="entry">
+			<label for="firstName">Vorname</label>
+			<input  id="firstName" type="text" data-ng-model="firstName" />
+			<i class="glyphicon glyphicon-ok" data-ng-show="firstName.length > 0"></i>
+		</div>
+		<div class="entry">
+			<label for="lastName">Nachname</label>
+			<input id="lastName" type="text" data-ng-model="lastName" />
+			<i class="glyphicon glyphicon-ok" data-ng-show="lastName.length > 0"></i>
+		</div>
+		<div class="entry">
+			<label for="dateOfBirth">Geburtsdatum</label>
+			<input id="dateOfBirth" type="date" data-ng-model="dateOfBirth" />
+			<i class="glyphicon glyphicon-ok" data-ng-show="dateOfBirth.length > 0"></i>
+		</div>
+		<button type="submit" id="send" data-ng-click="sendRequest()" data-ng-disabled="(!firstName && !lastName && !dateOfBirth) || (!firstName && !lastName && dateOfBirth) || (!firstName && lastName && !dateOfBirth) || (firstName && !lastName && !dateOfBirth) || (!firstName && lastName && !dateOfBirth)">Anfrage absenden</button>
+		<button type="reset" id="clear" data-ng-click="clearForm()">Formular leeren</button>
+	</form>
+</span>
+
+
+
+<span class="results" data-ng-show="result">
+	<h3 translate="{{'RESULT_TITLETEXT'}}"></h3>
+
+	<div class="output" data-ng-if="request.firstName">
+		Vorname: {{request.firstName}}
+	</div>
+	<div class="output" data-ng-if="request.lastName">
+		Nachname: {{request.lastName}}
+	</div>
+	<div class="output" data-ng-if="request.dateOfBirth">
+		Geburtsdatum: {{request.dateOfBirth | date}}
+	</div>
+
+	<h3>Adresse</h3>
+	<div class="output">
+		Kriegsstr. 124
+	</div>
+	<div class="output">
+		Karlsruhe 76131
+	</div>
+	<button type="action" id="goHome" data-ng-click="goHome()">Zurück</button>
+</span>

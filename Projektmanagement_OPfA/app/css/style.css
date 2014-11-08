@@ -1,0 +1,93 @@
+/* ________DEFINITIONS________ */
+/* ________DEFAULTS________ */
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+}
+h1 {
+  color: #83b9ae;
+  margin: 1ex 0 2ex;
+}
+h2 {
+  color: #63a699;
+}
+h3 {
+  color: #4e887d;
+}
+*::selection {
+  background-color: #e5f0ee;
+}
+/* ________STRUCTURE________ */
+.container {
+  margin-bottom: 5em;
+}
+footer {
+  position: relative;
+  height: 5em;
+  /* footer height */
+  margin: 0 4em 2em;
+}
+.copyright {
+  margin: 1em;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+/* ________NAVBAR________ */
+nav.navbar .navbar-header {
+  padding-left: 1em;
+}
+/* ________MAINCONTENT________ */
+form#createRequestForm input {
+  line-height: inherit;
+  width: 150px;
+}
+form#createRequestForm label {
+  width: 110px;
+}
+form#createRequestForm .entry,
+.results .output {
+  display: block;
+}
+form#createRequestForm button,
+.results button {
+  margin-top: 20px;
+}
+input[type=submit]:disabled,
+button:disabled {
+  background-color: #D5D5D5;
+  border-style: inset;
+  border-radius: 3px;
+  color: gray;
+}
+/** ________RESPONSIVE_DESIGN________ **/
+/* Large desktop */
+@media (min-width: 768px) {
+  nav.navbar .active {
+    background-color: #e4e4e4;
+  }
+  nav.navbar .navbar-brand:hover,
+  nav.navbar ul.navbar-nav .navbar-tab:hover {
+    background-color: #eeeeee;
+    transition: all 0.25s;
+  }
+  nav.navbar .active.navbar-brand:hover,
+  nav.navbar ul.navbar-nav .active.navbar-tab:hover {
+    background-color: #cfcfcf;
+    transition: all 0.25s;
+  }
+}
+/* Portrait tablet to landscape and desktop */
+/* Landscape phone to portrait tablet */
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  h1,
+  h2,
+  h3 {
+    word-wrap: break-word;
+  }
+  footer {
+    float: none;
+  }
+}

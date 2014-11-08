@@ -1,0 +1,13 @@
+{
+	"LANG" : "Deutsch",
+	"LANG_GER" : "Deutsch",
+	"LANG_ENG" : "English",
+	"LANG_URL" : "/img/language/lang_de.png",
+	"NAV_BRAND" : "OPfA",
+	"NAV_ABOUT" : "Über",
+	"HOME_TITLE" : "Online-Portal für Adressermittlung",
+	"HOME_TITLETEXT" : "Anfrage erstellen",
+	"ABOUT_TITLE" : "Über die Anwendung",
+	"ABOUT_ABOUTTEXT" : "OPfA ist ein Online-Portal zur Adressermittlung. Eingesetzte Technologien sind: AngularJS, Bootstrap, Grunt im Frontend, sowie Spring und MySQL im Backend.",
+	"RESULT_TITLETEXT" : "Ergebnisse"	
+}
