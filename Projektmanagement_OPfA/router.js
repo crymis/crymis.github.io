@@ -1,7 +1,7 @@
 var module = angular.module('portingGuide');
 module.config(['$routeProvider', function($routeProvider) {
 		$routeProvider.
-				when("/", {
+				when("/home", {
 					templateUrl: "/views/home.html",
 					controller: "HomeCtrl"
 				}).
@@ -13,6 +13,6 @@ module.config(['$routeProvider', function($routeProvider) {
 					controller: "HomeCtrl"
 				}).
 				otherwise({
-					redirectTo: "/"
+					redirectTo: "/home"
 				});
 	}]);
