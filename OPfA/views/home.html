@@ -20,6 +20,14 @@
 			<input id="dateOfBirth" type="date" data-ng-model="dateOfBirth" />
 			<i class="glyphicon glyphicon-ok" data-ng-show="dateOfBirth.length > 0"></i>
 		</div>
+		<div class="entry">
+			<label for="placeRange"></label>
+			<select id="placeRange" type="text" data-ng-model="placeRange">
+				<option value="Karlsruhe">Karlsruhe</option>
+				<option value="Mannheim">Mannheim</option>
+				<option value="Stuttgart">Stuttgart</option>
+			</select>
+		</div>
 		<button type="submit" id="send" data-ng-click="sendRequest()" data-ng-disabled="(!firstName && !lastName && !dateOfBirth) || (!firstName && !lastName && dateOfBirth) || (!firstName && lastName && !dateOfBirth) || (firstName && !lastName && !dateOfBirth) || (!firstName && lastName && !dateOfBirth)">Anfrage absenden</button>
 		<button type="reset" id="clear" data-ng-click="clearForm()">Formular leeren</button>
 	</form>
@@ -45,7 +53,7 @@
 		Kriegsstr. 124
 	</div>
 	<div class="output">
-		Karlsruhe 76131
+		{{request.placeRange}} 76131
 	</div>
 	<button type="action" id="goHome" data-ng-click="goHome()">Zurück</button>
 </span>

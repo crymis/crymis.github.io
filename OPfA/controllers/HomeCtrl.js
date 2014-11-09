@@ -11,6 +11,7 @@ module.controller("HomeCtrl", ["$scope", "$location", function($scope, $location
 		$scope.request.firstName = $scope.firstName;
 		$scope.request.lastName = $scope.lastName;
 		$scope.request.dateOfBirth = $scope.dateOfBirth;
+		$scope.request.placeRange = $scope.placeRange;
 		$scope.result = true;
 	}
 
