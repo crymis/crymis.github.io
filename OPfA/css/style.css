@@ -39,7 +39,7 @@ nav.navbar .navbar-header {
   padding-left: 1em;
 }
 /* ________MAINCONTENT________ */
-form#createRequestForm input {
+form#createRequestForm input, form#createRequestForm select {
   line-height: inherit;
   width: 150px;
 }
