@@ -4,6 +4,7 @@ module.controller("HomeCtrl", ["$scope", "$location", function($scope, $location
 	$scope.firstName = "";
 	$scope.lastName = "";
 	$scope.dateOfBirth = "";
+	$scope.placeRange = "Karlsruhe";
 	$scope.request = {};
 	$scope.result = false;
 
