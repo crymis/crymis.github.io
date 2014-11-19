@@ -1,0 +1,141 @@
+/*------------------------------------*
+   CONTENTS
+*------------------------------------*/
+/*
+LESS DEFINITIONS
+TYPE
+STRUCTURE
+NAVBAR
+RESPONSIVE
+*/
+
+
+
+
+/*------------------------------------*
+   $LESS DEFINITIONS
+*------------------------------------*/
+@titleColor : #63a699;
+@navBgColor: #f8f8f8;;
+
+
+
+/*------------------------------------*
+   $TYPE
+*------------------------------------*/
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+	min-height: 100%;
+}
+
+p {
+	color: gray;
+}
+
+a {
+	color: lighten(@titleColor, 10%);
+	transition: all 0.3s;
+}
+
+a:hover {
+	color: lighten(@titleColor, 50%);
+	background-color: @titleColor;
+	text-decoration: none;
+}
+
+h1 {
+	color: lighten(@titleColor, 10%);
+}
+
+h2 {
+	color: @titleColor;
+}
+
+h3 {
+	color: darken(@titleColor, 10%);
+}
+
+*::selection {
+	background-color: lighten(@titleColor, 40%);
+}
+
+header {
+	z-index: 5;
+}
+
+li {
+	padding-bottom: 10px;
+}
+
+/*------------------------------------*
+   $STRUCTURE
+*------------------------------------*/
+
+footer {
+	position: relative;
+	height: 5em; /* footer height */
+	margin: 0 4em 2em;
+}
+
+.copyright {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	color: lighten(@titleColor, 10%);
+}
+
+
+
+/*------------------------------------*
+   $NAVBAR
+*------------------------------------*/
+nav.navbar .navbar-header {
+	padding-left: 1em;
+}
+
+
+
+
+
+/*------------------------------------*
+	$RESPONSIVE DESIGN
+*------------------------------------*/
+
+/* Large desktop */
+@media (min-width: 1200px) {}
+
+@media (min-width: 768px) {
+
+	nav.navbar .active {
+		background-color: darken(@navBgColor, 8%);
+	}
+
+	nav.navbar .navbar-brand:hover, nav.navbar ul.navbar-nav .navbar-tab:hover {
+		background-color: darken(@navBgColor, 4%);
+		transition: all 0.25s;
+	}
+
+	nav.navbar .active.navbar-brand:hover, nav.navbar ul.navbar-nav .active.navbar-tab:hover {
+		background-color: darken(@navBgColor, 16%);
+		transition: all 0.25s;
+	}
+	
+}
+
+
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+
+	h1, h2, h3 {
+		word-wrap: break-word;
+	}
+	
+	footer {
+		float: none;
+	}
+
+}
