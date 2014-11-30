@@ -71,7 +71,7 @@ module.directive("bandGallery", ["$window", function($window){
 		"<div data-ng-repeat='band in bandGalleryImgs' class='band band-{{$index}}' style='background-image: url({{band.url}}); height:{{windowHeight}}px'>" +
 			"<button class='overlayBtn prevBtn' data-ng-click='prevImg($index)' data-ng-show='topBtnActive && !$first'> &gt; </button>" +
 			"<button class='overlayBtn nextBtn' data-ng-click='nextImg($index)' data-ng-show='downBtnActive && !$last'> &gt; </button>" +
-			"<button class='overlayBtn goTopBtn' data-ng-click='goTop()' data-ng-show='downBtnActive || topBtnActive && $last'> &gt;&gt; </button>" +
+			"<button class='overlayBtn goTopBtn' data-ng-click='goTop()' data-ng-show='(downBtnActive || topBtnActive) && $last'> &gt;&gt; </button>" +
 			"<h1 class='band-heading'>{{band.title}}</h1>" +
 			"<p class='band-description'>{{band.description}}</p>" +
 			"<div class='pageNr' data-ng-show='pageNrActive'> {{$index+1}}/{{bandGalleryImgs.length}} </div>" +
