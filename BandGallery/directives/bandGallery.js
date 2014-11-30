@@ -13,6 +13,7 @@ module.directive("bandGallery", ["$window", function($window){
 			"pageNr": "=",
 			"navTopBtn": "=",
 			"navDownBtn" : "=",
+			"timer" : "=",
 			"bandGalleryImgs": "=galleryImgs"
 		},
 		link: function(scope, element, attrs) {
@@ -35,14 +36,28 @@ module.directive("bandGallery", ["$window", function($window){
 					angular.element('html,body').animate({
 						scrollTop: angular.element('.band-'+(index+1)).offset().top
 					}, 1000, "easeInOutCubic");
+					if(scope.timer && scope.timer > 0) {
+						for(var i = index+1; i+1 < scope.bandGalleryImgs.length; i++) {
+							doSetTimeout(i);
+						}
+					}
 				}
 			};
+
+			doSetTimeout = function(i) {
+				setTimeout(function() {
+					angular.element('html,body').animate({
+						scrollTop: angular.element('.band-'+(i+1)).offset().top
+					}, 1000, "easeInOutCubic");
+				}, scope.timer*1000);
+			}
 
 			scope.goTop = function() {
 				angular.element('html,body').animate({
 					scrollTop: angular.element('.band-0').offset().top
 				}, 1500, "easeOutCirc");
 			}
+
 
 			function adjustHeights() {
 				element[0].setAttribute('style', 'height:' + (scope.bandGalleryImgs.length * $window.innerHeight) + 'px; display: block');
@@ -69,12 +84,12 @@ module.directive("bandGallery", ["$window", function($window){
 		},
 		template: 
 		"<div data-ng-repeat='band in bandGalleryImgs' class='band band-{{$index}}' style='background-image: url({{band.url}}); height:{{windowHeight}}px'>" +
-			"<button class='overlayBtn prevBtn' data-ng-click='prevImg($index)' data-ng-show='topBtnActive && !$first'> &gt; </button>" +
-			"<button class='overlayBtn nextBtn' data-ng-click='nextImg($index)' data-ng-show='downBtnActive && !$last'> &gt; </button>" +
-			"<button class='overlayBtn goTopBtn' data-ng-click='goTop()' data-ng-show='(downBtnActive || topBtnActive) && $last'> &gt;&gt; </button>" +
-			"<h1 class='band-heading'>{{band.title}}</h1>" +
-			"<p class='band-description'>{{band.description}}</p>" +
-			"<div class='pageNr' data-ng-show='pageNrActive'> {{$index+1}}/{{bandGalleryImgs.length}} </div>" +
+		"<button class='overlayBtn prevBtn' data-ng-click='prevImg($index)' data-ng-show='topBtnActive && !$first'> &gt; </button>" +
+		"<button class='overlayBtn nextBtn' data-ng-click='nextImg($index)' data-ng-show='downBtnActive && !$last'> &gt; </button>" +
+		"<button class='overlayBtn goTopBtn' data-ng-click='goTop()' data-ng-show='(downBtnActive || topBtnActive) && $last'> &gt;&gt; </button>" +
+		"<h1 class='band-heading'>{{band.title}}</h1>" +
+		"<p class='band-description'>{{band.description}}</p>" +
+		"<div class='pageNr' data-ng-show='pageNrActive'> {{$index+1}}/{{bandGalleryImgs.length}} </div>" +
 		"</div>"
 	};
 }]);
