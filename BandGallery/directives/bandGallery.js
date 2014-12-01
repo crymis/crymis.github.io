@@ -37,9 +37,7 @@ module.directive("bandGallery", ["$window", function($window){
 						scrollTop: angular.element('.band-'+(index+1)).offset().top
 					}, 1000, "easeInOutCubic");
 					if(scope.timer && scope.timer > 0) {
-						for(var i = index+1; i+1 < scope.bandGalleryImgs.length; i++) {
-							doSetTimeout(i);
-						}
+						doSetTimeout(index+1);
 					}
 				}
 			};
@@ -49,6 +47,9 @@ module.directive("bandGallery", ["$window", function($window){
 					angular.element('html,body').animate({
 						scrollTop: angular.element('.band-'+(i+1)).offset().top
 					}, 1000, "easeInOutCubic");
+					if((++i)+1 < scope.bandGalleryImgs.length) {
+						doSetTimeout(i);
+					}
 				}, scope.timer*1000);
 			}
 
