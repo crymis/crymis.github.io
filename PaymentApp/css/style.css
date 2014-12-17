@@ -9,9 +9,10 @@ Date: 02.10.2014
 	color: #F5EDB5 !important;
 }
 
-input[type="text"], textarea {
+input, textarea {
     background-color: transparent;
     border: 2px solid;
+	width: 60px;
 }
 
 body, #cover {
@@ -54,10 +55,6 @@ body, #cover {
 	margin-top: 40px;
 	display: block;
 	text-align: center;
-}
-
-input {
-	width: 60px;
 }
 
 label > i {
