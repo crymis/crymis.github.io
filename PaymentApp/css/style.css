@@ -6,10 +6,19 @@ Date: 02.10.2014
 * {
 	-moz-box-sizing: border-box;
 	     box-sizing: border-box;
+	color: #F5EDB5 !important;
 }
 
-#bg{
-	background-color: #FFE466;
+input[type="text"], textarea {
+  background-color : #FFF9E2; 
+}
+
+body, #cover {
+	/*background-color: #FFE466;*/
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: -1;
 }
 
 #paymentApp {
