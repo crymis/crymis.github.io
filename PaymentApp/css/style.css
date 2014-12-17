@@ -20,7 +20,7 @@ Date: 02.10.2014
 input, textarea {
     background-color: transparent;
     border: 2px solid;
-	width: 60px;
+    width: 60px;
 }
 
 #bg {
@@ -72,6 +72,7 @@ input, textarea {
 	margin-top: 20px;
 	margin-bottom: 40px;
 	background-color: transparent;
+	display: inline-block;
 }
 
 label > i {
