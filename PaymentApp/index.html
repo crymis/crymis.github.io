@@ -19,14 +19,18 @@
 
 </head>
 <body id="bg">
-	<div id="animation"><div id="cover"></div></div>
 
 	<section id="paymentApp" data-ng-controller="AppCtrl">
+		
+		<div data-ng-show="epicMode" id="animation">
+			<div id="cover"></div>
+		</div>
 
 		<div class="content">
 
 			<div class="title">
-				<img src="img/euros_yellow.png" alt="Logo" id="logo">
+				<img data-ng-show="!epicMode" src="img/euros.png" alt="Logo" id="logo">
+				<img data-ng-show="epicMode" src="img/euros_yellow.png" alt="Logo" id="logo">
 				<h1 class="heading">Pay me!</h1>
 			</div>
 
@@ -63,6 +67,7 @@
 
 			<span id="footer">
 				<i class="glyphicon glyphicon-copyright-mark"></i> All rights reserved, 2014 | by Sir Daniel
+				<button id="epicModeBtn" data-ng-click="switchStyle()">{{newStyle}}</button>
 			</span>
 
 		</div>

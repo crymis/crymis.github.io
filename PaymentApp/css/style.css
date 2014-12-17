@@ -6,7 +6,15 @@ Date: 02.10.2014
 * {
 	-moz-box-sizing: border-box;
 	     box-sizing: border-box;
-	color: #F5EDB5 !important;
+}
+
+/* override default hightlighting color */ 
+::selection, :focus {
+  background: rgba(150,150,150,0.2); /* WebKit/Blink Browsers */
+  outline-color: #F5EDB5;
+}
+::-moz-selection {
+  background: rgba(150,150,150,0.2); /* Gecko Browsers */
 }
 
 input, textarea {
@@ -58,6 +66,12 @@ input, textarea {
 	margin-top: 40px;
 	display: block;
 	text-align: center;
+}
+
+#epicModeBtn {
+	margin-top: 20px;
+	margin-bottom: 40px;
+	background-color: transparent;
 }
 
 label > i {
