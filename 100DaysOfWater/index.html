@@ -25,9 +25,17 @@
         html, body {
             height: 100%;
             background-color: black;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
+        /* override default hightlighting color */ 
+        ::selection, :focus {
+          background: rgba(150,150,150,0.2); /* WebKit/Blink Browsers */
+          outline-color: #F5EDB5;
+        }
+        ::-moz-selection {
+          background: rgba(150,150,150,0.2); /* Gecko Browsers */
+        }
 
         h1 {
             color: #56c6ff;
