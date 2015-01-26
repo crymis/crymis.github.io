@@ -95,6 +95,7 @@
         var days = now - start - 1;
         var pic = days % 10;
         document.getElementById("days").innerHTML = days;
+        document.title = days;
         document.getElementById("bg").setAttribute("style", "background-image: url(water" + pic + ".jpg)");
 
         document.on
