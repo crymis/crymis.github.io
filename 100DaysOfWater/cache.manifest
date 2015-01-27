@@ -1,0 +1,24 @@
+CACHE MANIFEST
+
+CACHE:
+cache.manifest
+index.html
+water0.jpg
+water1.jpg
+water2.jpg
+water3.jpg
+water4.jpg
+water5.jpg
+water6.jpg
+water7.jpg
+water8.jpg
+water9.jpg
+PoiretOne1.woff2
+PoiretOne2.woff2
+PoiretOne3.woff2
+
+NETWORK:
+*
+
+SETTINGS:
+prefer-online
