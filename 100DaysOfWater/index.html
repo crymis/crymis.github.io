@@ -79,6 +79,22 @@
         top: calc(50% - 100px);
     }
 
+    .parallax-container {
+        position: relative;
+        width: 100%;
+    }
+
+    .parallax-container .parallax {
+        position: absolute;
+        top: 0px;
+        left: calc(50% - 94px);
+        text-align: center;
+    }
+
+    h2.parallax {
+        margin-top: 90px;
+    }
+
     footer {
         height: 10%;
         text-align: right;
@@ -131,8 +147,12 @@
 </head>
 <body id="bg">
     <main>
-        <h1 id="days"></h1>
-        <h2>Days of Water</h2>
+        <div class="parallax-container" data-jkit="[parallax:strength=0.3;axis=both]">
+            <h1 id="days" class="parallax"></h1>
+        </div>
+        <div class="parallax-container" data-jkit="[parallax:strength=0.3;axis=both]">
+            <h2 class="parallax">Days of Water</h2>
+        </div>
     </main>
 
     <footer>
@@ -141,6 +161,8 @@
         <p>Created by <a href="https://github.com/crymis">Crymis</a></p>
     </footer>
 
+    <script src="jkit_parallax/jquery-1.9.1.min.js"></script>
+    <script src="jkit_parallax/jquery.jkit.custom.1.2.16.min.js"></script>
     <script>
         var start = Math.floor(new Date(2015, 0, 0).getTime()/1000/60/60/24);
         var now = Math.floor(new Date().getTime()/1000/60/60/24);
@@ -150,7 +172,9 @@
         document.title = days + " Days of Water";
         document.getElementById("bg").setAttribute("style", "background-image: url(water" + pic + ".jpg)");
 
-        document.on
+        $(document).ready(function(){
+            $('body').jKit();
+        });
     </script>
 </body>
 </html>
