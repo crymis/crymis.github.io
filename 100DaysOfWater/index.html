@@ -151,7 +151,7 @@
             <h1 id="days" class="parallax"></h1>
         </div>
         <div class="parallax-container" data-jkit="[parallax:strength=0.3;axis=both]">
-            <h2 class="parallax">Days of Water</h2>
+            <h2 id="subtitle" class="parallax"></h2>
         </div>
     </main>
 
@@ -168,7 +168,10 @@
         var now = Math.floor(new Date().getTime()/1000/60/60/24);
         var days = now - start - 1;
         var pic = days % 10;
-        document.getElementById("days").innerHTML = days;
+        setTimeout(function(){
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("subtitle").innerHTML = "Days of Water";
+        }, 1000);
         document.title = days + " Days of Water";
         document.getElementById("bg").setAttribute("style", "background-image: url(water" + pic + ".jpg)");
 
