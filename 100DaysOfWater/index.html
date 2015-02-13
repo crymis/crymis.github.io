@@ -201,6 +201,12 @@
 
         $(document).ready(function(){
             $('body').jKit();
+            if(days === 50) {
+                document.getElementById("bg").setAttribute("style", "background-image: url(waterHalf.jpg)");
+                $("#days").addClass('winningShadowTwo');
+                $("#subtitle").addClass('winningShadowTwo');
+                $('#madeIt').html("NICE! YOU WENT HALF THROUGH! KEEP GOING!");
+            }
             if(days >= 100) {
                 document.getElementById("bg").setAttribute("style", "background-image: url(waterMadeIt.jpg)");
                 $("#days").addClass('winningShadow');
