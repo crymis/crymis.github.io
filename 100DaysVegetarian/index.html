@@ -113,7 +113,7 @@
     }
 
     footer > p {
-    	margin-bottom: -15px;
+    	margin-top: 45px;
     }
 
     .winningShadow {
@@ -175,8 +175,6 @@
     </main>
 
     <footer>
-        <p>Images by <a href="http://wallpaperswide.com/">WallpapersWide</a></p>
-        <br />
         <p>Created by <a href="https://github.com/crymis">Crymis</a></p>
     </footer>
 
@@ -245,7 +243,6 @@
         var start = Math.floor(new Date(2016, 0, 0).getTime()/1000/60/60/24);
         var now = Math.floor(new Date().getTime()/1000/60/60/24);
         var days = 100.0 - (now - start - 2);
-        days = 0;
         var pic = days % 30;
         document.getElementById("bg").setAttribute("style", "background-image: url(images/meat" + pic + ".jpg)");
         document.title = days + " Days Vegetarian";
