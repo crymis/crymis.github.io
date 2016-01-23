@@ -190,7 +190,7 @@
         <p>Von Rainer, Alex & Daniel</p>
     </footer>
     <audio controls autoplay id="music">
-        <source src="music/Whispers of Wonders.mp3" type="audio/mp3">
+        <source src="" type="audio/mp3">
     </audio>
 
     <script src="jkit_parallax/jquery-1.9.1.min.js"></script>
@@ -207,8 +207,12 @@
 
         /* Music: Song names */
         var songNames = [
-            "Whispers of Wonders.mp3",
-            "Legends of Destiny.mp3"
+            "Whispers of Wonders",
+            "Legends of Destiny",
+            "Pillars of Earth",
+            "Seeds of Promise",
+            "Shadowfall",
+            "The Future Is Upon Us"
         ]
 
 
@@ -228,7 +232,8 @@
 
         document.getElementById("days").innerHTML = weeks;
         document.getElementById("subtitle").innerHTML = "Wochen bis zum Urlaub";
-        document.getElementById("quote").innerHTML = quotes[days % 4];
+        document.getElementById("quote").innerHTML = quotes[days % quotes.length];
+        document.getElementById("music").setAttribute("src", "music/" + songNames[days % songNames.length] + ".mp3")
 
 
         // Document Ready: Define functions etc.
