@@ -256,13 +256,17 @@
             $('body').jKit();
 
             // countdown!
-            if(days < 7 && days !== 0) {
+            if (days < 7 && days >= 1) {
                 document.getElementById("bg").setAttribute("style", "background-image: url(images/kreta01.jpg)");
                 $('#madeIt').html("Nur noch");
                 document.getElementById("days").innerHTML = days;
                 document.getElementById("subtitle").innerHTML = "Tage! Dann gehts los!";
             }
-            if(days === 0) {
+            if ( days === 1) {
+                document.getElementById("subtitle").innerHTML = "Tag! Schon gepackt?"; 
+            }
+
+            if (days === 0) {
                 document.getElementById("bg").setAttribute("style", "background-image: url(images/kreta02.jpg)");
                 document.getElementById("days").innerHTML = days;
                 document.getElementById("subtitle").innerHTML = "Jetzt gehts los! In die Hos'!";
