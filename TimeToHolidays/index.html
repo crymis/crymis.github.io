@@ -226,14 +226,8 @@
         var weeks = Math.round(days / 7);
 
         var pic = weeks % 11;
-        var additionalZero = '';
-        if (pic < 10) {
-            additionalZero = '0';
-        } else {
-            additionalZero = '';
-        }
 
-        document.getElementById("bg").setAttribute("style", "background-image: url(images/kreta" + additionalZero + pic + ".jpg)");
+        document.getElementById("bg").setAttribute("style", "background-image: url(images/kreta0" + pic + ".jpg)");
         document.title = "Nur noch " + weeks + " Wochen";
 
         document.getElementById("days").innerHTML = weeks;
