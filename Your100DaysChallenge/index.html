@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Your 100 Days Challenge</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style type="text/css">
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            font-family: 'WhiteFlame', 'Helvetica', 'sans-serif';
+            font-weight: 300;
+            text-shadow: 1px 1px 10px #63666C;
+        }
+
+        html, body {
+            height: 100%;
+            background-color: black;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            position: relative;
+            -webkit-animation: blurIn .5s;
+        }
+
+        /* override default hightlighting color */ 
+        ::selection, :focus {
+          background: rgba(150,150,150,0.2); /* WebKit/Blink Browsers */
+          outline-color: #F5EDB5;
+      }
+      ::-moz-selection {
+          background: rgba(150,150,150,0.2); /* Gecko Browsers */
+      }
+
+      h1, h2, h3, a {
+        color: white;
+    }
+    
+    h1 {
+        text-align: center;
+        font-size: 10em;
+        -webkit-animation: moveInTop 1s cubic-bezier(.5,.2,.1,.8);
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 2em;
+        -webkit-animation: moveInTop 1s cubic-bezier(.5,.2,.1,.8);
+    }
+
+    p {
+        color: rgba(255,255,255,0.65);
+        font-size: 1.25em;
+        -webkit-animation: moveInRight 0.75s;
+    }
+
+    a {
+        color: rgba(255,255,255,0.65);
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: white;
+        border-bottom: 1px solid white;
+        padding-bottom: 4px;
+        transition: all 0.25s;
+    }
+
+    main {
+        height: 90%;
+        position: relative;
+        top: calc(50% - 100px);
+    }
+
+    .parallax-container {
+        position: relative;
+        width: 100%;
+    }
+
+    .parallax-container .parallax {
+        position: absolute;
+        top: 0px;
+        left: calc(50% - 62px);
+        text-align: center;
+    }
+
+    h2.parallax {
+        margin-top: 90px;
+    }
+
+    #quote {
+    	display: flex;
+    	justify-content: center;
+    	position: absolute;
+    	top: 55%;
+    	width: 100%;
+    	color: white;
+    	font-size: 1em;
+    }
+
+    footer {
+        height: 10%;
+        text-align: right;
+        margin-right: 30px;
+        position: relative;
+    }
+
+    footer > p {
+        font-size: 0.5em;
+    	margin-top: 45px;
+    }
+
+    .winningShadow {
+        animation: winningShadow 1.33s infinite;
+        -webkit-animation: winningShadow 1.33s infinite;
+    }
+
+    .winningShadowTwo {
+        animation: winningShadowTwo 1.33s;
+        -webkit-animation: winningShadowTwo 1.33s;
+        -webkit-animation-fill-mode: forwards;
+    }
+
+
+    @-webkit-keyframes moveInTop {
+        0% {transform: translate(0, -100%); opacity: 0;}
+        100% {transform: translate(0, 0); opacity: 1;}
+    }
+
+    @-webkit-keyframes moveInRight {
+        0% {transform: translate(100%, 0); opacity: 0;}
+        100% {transform: translate(0, 0); opacity: 1;}
+    }
+
+    @-webkit-keyframes blurIn {
+        0% {-webkit-filter: blur(4px);}
+        100% {-webkit-filter: blur(0px);}
+    }
+
+    /* totally sick keyframe animation for showing the finished state */
+    @-webkit-keyframes winningShadow {
+        33% {transform: scale(1.5); , text-shadow: 1px 1px rgba(166, 182, 108, 0.66), 2px 2px rgba(166, 182, 108, 0.66), 3px 3px rgba(166, 182, 108, 0.66), 4px 4px rgba(166, 182, 108, 0.66), 5px 5px rgba(166, 182, 108, 0.66), 6px 6px rgba(166, 182, 108, 0.66), 7px 7px rgba(166, 182, 108, 0.66), 8px 8px rgba(166, 182, 108, 0.66), 9px 9px rgba(166, 182, 108, 0.66), 10px 10px rgba(166, 182, 108, 0.66);}
+        66% {text-shadow: -1px -1px rgba(166, 182, 108, 0.66), -2px -2px rgba(166, 182, 108, 0.66), -3px -3px rgba(166, 182, 108, 0.66), -4px -4px rgba(166, 182, 108, 0.66), -5px -5px rgba(166, 182, 108, 0.66), -6px -6px rgba(166, 182, 108, 0.66), -7px -7px rgba(166, 182, 108, 0.66), -8px -8px rgba(166, 182, 108, 0.66), -9px -9px rgba(166, 182, 108, 0.66), -10px -10px rgba(166, 182, 108, 0.66);}
+        99% {transform: scale(1); text-shadow: 0px 0px rgba(166, 182, 108, 0.66);}
+    }
+
+      @-webkit-keyframes winningShadowTwo {
+        from {text-shadow: 0px 0px rgba(166, 182, 108, 0.66);}
+        to {font-size: 50pt; text-shadow: -1px -1px rgba(166, 182, 108, 0.66), -2px -2px rgba(166, 182, 108, 0.66), -3px -3px rgba(166, 182, 108, 0.66), -4px -4px rgba(166, 182, 108, 0.66), -5px -5px rgba(166, 182, 108, 0.66), -6px -6px rgba(166, 182, 108, 0.66), -7px -7px rgba(166, 182, 108, 0.66), -8px -8px rgba(166, 182, 108, 0.66), -9px -9px rgba(166, 182, 108, 0.66), -10px -10px rgba(166, 182, 108, 0.66), -11px -11px rgba(166, 182, 108, 0.66), -12px -12px rgba(166, 182, 108, 0.66);}
+    }
+
+@font-face {
+	font-family: 'WhiteFlame';
+    src: url('WhiteFlame.ttf') format('truetype'); 
+}
+
+</style>
+</head>
+<body id="bg">
+    <main>
+        <div class="parallax-container" data-jkit="[parallax:strength=0.3;axis=both]">
+            <h1 id="days" class="parallax"></h1>
+        </div>
+        <div class="parallax-container" data-jkit="[parallax:strength=0.3;axis=both]">
+            <h2 id="subtitle" class="parallax"></h2>
+        </div>
+        <p id="quote"></p>
+        <h1 id="madeIt"></h1>
+    </main>
+
+    <footer>
+        <p>CREATED BY <a href="https://github.com/crymis">CRYMIS</a></p>
+    </footer>
+    <audio controls autoplay id="music">
+        <source src="bacon.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="jkit_parallax/jquery-1.9.1.min.js"></script>
+    <script src="jkit_parallax/jquery.jkit.custom.1.2.16.min.js"></script>
+    <script>
+
+    	/* VARIABLE TO DEFINE */
+        var title = "";
+        var subtitle = "";
+    	var quotes = ["CHOOSE YOUR CHALLENGE, CHANGE YOUR LIFE!"];
+
+    	/* calculate date */
+        var start = Math.floor(new Date(2016, 0, 0).getTime()/1000/60/60/24);
+        var now = Math.floor(new Date().getTime()/1000/60/60/24);
+        
+        var days = now - start - 2;
+        var togo = "";
+        // count down until 100 days are reached, then count up.
+        if (days <= 100) {
+        	days = 100 - days;
+        	togo = " to go"
+        }
+        // TODO: set modulo the amount of images
+        var pic = 1;
+
+        document.getElementById("bg").setAttribute("style", "background-image: url(images/lion.jpg)");
+        document.title = days + title;
+
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("subtitle").innerHTML = subtitle + togo;
+        document.getElementById("quote").innerHTML = quotes[days % quotes.length];
+
+        $(document).ready(function(){
+            $('body').jKit();
+            // center quote
+            if(days === 50) {
+                document.getElementById("bg").setAttribute("style", "background-image: url(images/lion.jpg)");
+                $("#days").addClass('winningShadowTwo');
+                $("#subtitle").addClass('winningShadowTwo');
+                $('#madeIt').html("NICE! YOU ARE HALF THROUGH! KEEP GOING!");
+                $('.parallax-container').css('top', '-200px');
+            }
+            if(days === 0) {
+                document.getElementById("bg").setAttribute("style", "background-image: url(images/lion.jpg)");
+                $("#days").addClass('winningShadow');
+                $("#subtitle").addClass('winningShadow');
+                $('#madeIt').html("Congratulations! YOU MADE IT!");
+                $('.parallax-container').css('top', '-300px');
+            }
+        });
+    </script>
+</body>
+</html>
