@@ -47,13 +47,13 @@
     
     h1 {
         text-align: center;
-        font-size: 12em;
+        font-size: 14em;
         -webkit-animation: moveInTop 1s cubic-bezier(.5,.2,.1,.8);
     }
 
     h2 {
         text-align: center;
-        font-size: 2em;
+        font-size: 4em;
         -webkit-animation: moveInTop 1s cubic-bezier(.5,.2,.1,.8);
     }
 
@@ -104,7 +104,7 @@
     	top: 55%;
     	width: 100%;
     	color: white;
-    	font-size: 1.5em;
+    	font-size: 1.85em;
     }
 
     footer {
@@ -180,7 +180,7 @@
         <p>Created by <a href="https://github.com/crymis">Crymis</a></p>
     </footer>
     <audio controls autoplay id="music">
-        <source src="hacksong.mp3" type="audio/mp3">
+        <source id="source" src="hacksong.mp3" type="audio/mp3">
     </audio>
 
     <script src="jkit_parallax/jquery-1.9.1.min.js"></script>
@@ -189,6 +189,11 @@
 
     	/* some quotes */
     	var quotes = [
+            "Alles ist aus Hack gemacht!",
+            "So lange kein Fleisch und du lebst noch?!",
+            "Du bist kein Mensch. Menschen sind Carnivoren!",
+            "Bacon Bacon Bacon Bacon Bacon Bacon Bacon Bacon Bacon!",
+            "Als ob du den letzten Tag schaffen würdest... Tsssss",
 	    	"Vegetarier sind meine natürlichen Feinde",
 			"Vegetarier essen meinem Essen das Essen weg",
 			"Wenn wir Tiere nicht essen sollten, warum sind sie dann aus Fleisch gemacht",
@@ -265,6 +270,7 @@
 
         $(document).ready(function(){
             $('body').jKit();
+            var audio = document.getElementById('music');
             // center quote
             if(days === 50) {
                 document.getElementById("bg").setAttribute("style", "background-image: url(images/meatHalf.jpg)");
@@ -273,12 +279,42 @@
                 $('#madeIt').html("NICE! YOU ARE HALF THROUGH! KEEP GOING!");
                 $('.parallax-container').css('top', '-200px');
             }
+            if(days === 5) {
+                document.getElementById("bg").setAttribute("style", "background-image: url(images/final_soclose.jpg)");
+                $('#quote').html(quotes[0]);
+            }
+            if(days === 4) {
+                document.getElementById("bg").setAttribute("style", "background-image: url(images/final_almost.jpg)");
+                $('#quote').html(quotes[1]);
+            }
+            if(days === 3) {
+                document.getElementById("bg").setAttribute("style", "background-image: url(images/final_just.png)");
+                $('#quote').html(quotes[2]);
+                audio.src = "bacon.mp3";
+                audio.load();
+                audio.play();
+            }
+            if(days === 2) {
+                document.getElementById("bg").setAttribute("style", "background-image: url(images/final_bacon.jpg)");
+                $('#quote').html(quotes[3]);
+            }
+            if(days === 1) {
+                document.getElementById("bg").setAttribute("style", "background-image: url(images/meatHalf.jpg)");
+                $('#quote').html(quotes[4]);
+                audio.src = "bacon.mp3";
+                audio.load();
+                audio.play();
+            }
             if(days === 0) {
                 document.getElementById("bg").setAttribute("style", "background-image: url(images/meatMadeIt.jpg)");
                 $("#days").addClass('winningShadow');
                 $("#subtitle").addClass('winningShadow');
                 $('#madeIt').html("Congratulations! YOU MADE IT!");
-                $('.parallax-container').css('top', '-300px');
+                $('#quote').html("You are the Master of the Vegetarian Universe");
+                $('.parallax-container').css('top', '300px');
+                audio.src = "epic.mp3";
+                audio.load();
+                audio.play();
             }
         });
     </script>
