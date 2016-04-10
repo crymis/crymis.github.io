@@ -305,11 +305,11 @@
                 audio.load();
                 audio.play();
             }
-            if(days === 0) {
+            if(days <= 0) {
                 document.getElementById("bg").setAttribute("style", "background-image: url(images/meatMadeIt.jpg)");
                 $("#days").addClass('winningShadow');
                 $("#subtitle").addClass('winningShadow');
-                $('#madeIt').html("Congratulations! YOU MADE IT!");
+                $('#madeIt').html("Congratulations!");
                 $('#quote').html("You are the Master of the Vegetarian Universe");
                 $('.parallax-container').css('top', '300px');
                 audio.src = "epic.mp3";
