@@ -258,6 +258,8 @@
         if (days <= 100) {
         	days = 100 - days;
         	togo = " to go"
+        } else {
+            days = 0;
         }
         var pic = days % 30;
 
@@ -305,7 +307,7 @@
                 audio.load();
                 audio.play();
             }
-            if(days <= 0) {
+            if(days === 0) {
                 document.getElementById("bg").setAttribute("style", "background-image: url(images/meatMadeIt.jpg)");
                 $("#days").addClass('winningShadow');
                 $("#subtitle").addClass('winningShadow');
