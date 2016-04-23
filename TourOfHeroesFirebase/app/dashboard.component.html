@@ -1,0 +1,8 @@
+<h3>Top Heroes</h3>
+<div class="grid grid-pad">
+  <div *ngFor="#hero of heroes" (click)="hero.id !== -1 && gotoDetail(hero)" class="col-1-4">
+    <div class="module hero" [ngClass]="{loading: hero.id === -1}">
+      <h4>{{hero.name}}</h4>
+    </div>
+  </div>
+</div>
