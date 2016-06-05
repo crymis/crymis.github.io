@@ -1,0 +1,118 @@
+/* colors:
+  angular light-red: #DD0031;
+  angular dark-red: #C3002F;
+  angular light-blue: #0277DA;
+  angular dark-blue: #0143A3;
+*/
+
+
+
+/* ADD FORM */
+.add-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 3em 1em;
+}
+
+.add-form .name {
+  font-size: 1.5em;
+  margin-right: 1em;
+  height: 2.15em;
+}
+.add-form .add-button {
+  padding: 0.5em;
+  font-size: 1.5em;
+  font-weight: 600;
+  border: none;
+  background-color: white;
+  color: #0143A3;
+  cursor: pointer;
+}
+
+
+
+/* MODULES (=TILES) */
+.module {
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5em;
+    color: #0277DA;
+    max-height: 120px;
+    min-width: 120px;
+    background-color: white;
+    border-radius: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background-color 0.1s, color 0.1s, transform 0.2s;
+}
+.module.loading {
+  color: white;
+  background-color: #0143A3;
+}
+.module.loading:hover, .module.loading:focus {
+  cursor: initial;
+  color: white;
+  background-color: #0143A3;
+}
+h4 {
+  position: relative;
+}
+.module:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #0143A3;
+}
+
+
+/* Animations */
+@keyframes scaleUp {
+  from {transform: scale(0);}
+  to {transform: scale(1);}
+}
+.scaleUp {
+  animation: scaleUp 0.2s;
+}
+
+
+
+/* GRID SYSTEM */
+
+[class*='col-'] {
+    float: left;
+}
+
+[class*='col-'] {
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+[class*='col-']:last-of-type {
+  padding-right: 0;
+}
+.grid {
+  margin: 0;
+}
+.col-1-4 {
+  width: 25%;
+}
+.grid-pad {
+  padding: 10px 0;
+}
+.grid-pad > [class*='col-']:last-of-type {
+  padding-right: 20px;
+}
+@media (max-width: 600px) {
+    .module {
+      font-size: 10px;
+      max-height: 75px; }
+  }
+  @media (max-width: 1024px) {
+    .grid {
+      margin: 0;
+  }
+  .module {
+      min-width: 60px;
+  }
+}

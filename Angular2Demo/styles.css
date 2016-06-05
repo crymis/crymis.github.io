@@ -1,0 +1,30 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 3em;
+}
+
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+h1, h2, h3 {
+  color: white;
+}
+h1 {
+	font-size: 2.5em;
+}
+h1 a {
+  color: white;
+  text-decoration: none;
+}
+
+.loading {
+	text-align: center;
+	font-weight: 500;
+	color: white;
+}

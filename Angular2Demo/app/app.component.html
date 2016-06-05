@@ -1,0 +1,14 @@
+<h1><a href="https://boiling-heat-8707.firebaseio.com/" target="_blank">Angular 2 Demo</a></h1>
+
+<form (ngSubmit)="addHero(name)" class="add-form">
+	<input type="text" class="name" [(ngModel)]="name" required />
+	<button type="submit" class="add-button">Add</button>
+</form>
+
+<div class="grid grid-pad">
+  <div *ngFor="#hero of heroes" (click)="hero.id !== -1 && deleteHero(hero)" class="col-1-4">
+    <div class="module hero" [ngClass]="{loading: hero.id === -1}">
+      <h4>{{hero.name}}</h4>
+    </div>
+  </div>
+</div>
