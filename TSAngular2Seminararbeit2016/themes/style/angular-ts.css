@@ -1,0 +1,397 @@
+
+/* OVERWRITE WITH OWN STYLES */
+
+html, body {
+  background-color: #0F588E;
+}
+
+/* BASICS  */
+.csstransforms h1, .csstransforms .vcenter {
+  position: static;
+}
+
+h1 {
+  font-size: 3em;
+}
+h3 {
+  font-size: 1.75em;
+}
+p {
+  font-size: 1.4em;
+}
+.deck-container {
+  background-color: #0277DA;
+}
+
+.fullscreen-wrapper {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  bottom: 0;
+  right: 0;
+  width: 1000px;
+  height: 1000px;
+}
+
+.fullscreen {
+  position: relative !important;
+  left: -50% !important;
+  top: -50% !important;
+  right: 0;
+  bottom: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+/* colors:
+  angular light-red: #DD0031;
+  angular dark-red: #C3002F;
+  angular light-blue: #0277DA;
+  angular dark-blue: #0143A3;
+*/
+
+.slide:nth-of-type(1) {
+  /*background-color: #DD0031;*/
+  background-color: #0F588E;
+}
+/*.slide:nth-of-type(2) {
+  background: #F4476F;
+}
+.slide:nth-of-type(3) {
+  background: #449ACE;
+}
+.slide:nth-of-type(4) {
+  background: #FFE54A;
+}*/
+
+.slide .slide {
+  background-color: transparent;
+}
+
+
+@font-face {
+  font-family: robotoLight;
+  src: url(Roboto-Light.ttf);
+}
+
+h1, h2, h3, h4, h5, h6, p, div {
+  font-family: robotoLight !important;
+  color: white !important;
+}
+
+
+
+
+
+
+/* [1] TITLE  */
+.title-screen {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 30%;
+  left: 0;
+  right: 0;
+}
+
+.title-screen .image-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-screen .image-row .and {
+  font-size: 4em;
+  margin: 0 30px;
+}
+
+.title-screen .typescript-logo, .title-screen .angular-logo {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+}
+
+.title-screen .typescript-logo {
+  background: url('../../images/typescript.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.title-screen .angular-logo {
+  background: url('../../images/angular.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 250px;
+  height: 250px;
+}
+
+.presentation-info {
+  position: fixed;
+  bottom: 10px;
+  left: 5px;
+  font-size: 0.7em;
+  margin-left: 2em;
+}
+
+
+
+
+
+
+/* [2] MOTIVATION  */
+.millennials1, .millennials2, .millennials3, .goldfish {
+  left: -20% !important;
+}
+.millennials1 {
+  background-image: url('../../images/millennials1.jpg');
+}
+.millennials2 {
+  background-image: url('../../images/millennials2.jpg');
+}
+.millennials3 {
+  background-image: url('../../images/millennials3.jpg');
+}
+.millennials1.deck-before, .millennials2.deck-before, .millennials3.deck-before,.millennials3.deck-previous  {
+  display: none;
+}
+.goldfish.deck-current {
+  background-image: url('../../images/goldfish.jpg');
+}
+.millennials1-link, .millennials3-link, .goldfish-link {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 10;
+  font-size: 0.7em;
+  color: white !important;
+}
+.millennials1.deck-previous .img-link, .millennials3.deck-before .img-link, .goldfish.deck-previous .img-link , .goldfish.deck-before .img-link {
+  opacity: 0 !important;
+}
+
+
+
+
+/* [3] BASIC WEB  */
+.code-snippets {
+  position: absolute !important;
+  display: flex !important;
+  flex-direction: row;
+  top: 45%;
+  left: 10%;
+  width: 130%;
+  height: 50%;
+}
+
+.code {
+  position: absolute !important;
+  left: 18% !important;
+  width: 45%;
+}
+
+.code-javascript {
+  font-size: 0.9em;
+}
+
+.code-css {
+  font-size: 0.9em;
+}
+
+.basic-web-structure.deck-previous,.basic-web-structure.deck-before {
+  opacity: 1;
+} 
+
+
+/* [4] Basic Web App Example  */
+#BasicWebApp .fullscreen-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.webapp-center {
+  position: relative;
+  top: -75px;
+  left: -50%;
+  height: 150px;
+}
+
+.webapp-center #title {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+.webapp-center #name {
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+.webapp-center #submit {
+  padding: 12px;
+  background-color: white;
+  color: #567;
+  border: none;
+  vertical-align: middle;
+}
+.webapp-center #message {
+  margin-top: 100px;
+}
+
+
+
+/* [5] TypeScript Description */
+.ts-es6 {
+  position: absolute !important;
+  left: 45% !important;
+  top: -130% !important;
+  height: 85vh;
+  width: 50%;
+}
+
+
+
+/* [6] Typsystem */
+.code-structural {
+  top: 35% !important;
+  left: 50% !important;
+  width: 750px;
+}
+
+
+
+/* [7] Typsystem primitiv */
+.code-typing-js.deck-before {
+  opacity: 1;
+}
+
+.code-typing.ts {
+  transition: transform 500ms, opacity 500ms;
+}
+.code-typing-ts.deck-previous, .code-typing-ts.deck-before {
+  transform: translateY(calc(-100% - 14px));
+  opacity: 0;
+  z-index: -2;
+}
+.compiled-text.deck-next, .compiled-text.deck-after {
+  transform: scale(0) !important;
+}
+.compiled-text {
+  position: absolute !important;
+  top: 75% !important;
+  left: 0;
+  text-align: center;
+  font-family: 'Courier New', Arial !important;
+  font-size: 3em;
+  font-weight: 600;
+  transform: scale(1) !important;
+}
+
+
+/* Typsysteme komplex */
+.ts-type-warning.deck-previous .code-typing-complex .language-typescript .token.string {
+  transition: color 0.25s, text-decoration 0.25s;
+}
+.ts-type-warning.deck-previous .code-typing-complex .language-typescript span.string.token:nth-of-type(25) {
+    text-decoration: underline;
+    color: red;
+}
+.ts-type-warning-msg {
+  position: absolute !important;
+  top: 92% !important;
+  left: 0 !important;
+  font-size: 0.7em;
+}
+.ts-type-warning-msg.deck-next, .ts-type-warning-msg.deck-after {
+  transform: translate3d(0, 0, 0) !important;
+  opacity: 0;
+}
+.ts-type-warning-msg.deck-current {
+  opacity: 1;
+}
+
+/* [8] Angular 2 -Architecture */
+.ng2.fullscreen-wrapper {
+  width: 1300px;
+  height: 1300px;
+  margin-top: 40px;
+}
+.ng2-architecture {
+  background-image: url('../../images/angular2_architecture_overview.png');
+}
+.ng2-architecture-bg {
+  background-color: white;
+}
+.ng2-architecture-bg h2 {
+  color: #0277DA !important;
+}
+
+/* [9] Angular 2 Demo */
+.ng2-demo-code-html {
+  position: absolute !important;
+  top: 150px !important;
+}
+.ng2-demo-code-html.deck-previous, .ng2-demo-code-html.deck-before {
+}
+.ng2-demo-code-ts {
+}
+
+/* [10] Angular 2 Demo */
+.angular2-demo {
+  width: 100%;
+  height: 100vh;
+}
+
+
+/* [10] Angular 2 ng1 to ng2 */
+.ng1ng2-upgrade {
+  background-image: url('../../images/ng1ng2upgrade.png');
+  background-repeat: no-repeat;
+  width: 700px;
+  height: 700px;
+  background-size: contain;
+  position: absolute;
+  top: 150px;
+  right: 125px;
+}
+
+
+
+
+/* [14] Typsystem */
+.ts-playground {
+  width: 100%;
+  height: 750px;
+}
+
+
+
+/* [15] GOODBYE  */
+.end {
+  background-color: #00136A;
+}
+.thanks-title {
+  font-size: 3em;
+  font-weight: 500;
+  z-index: 10;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 25%;
+}
+
+.angular-hero-bg {
+  background: url('../../images/superhero-paper-bright.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 500px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
