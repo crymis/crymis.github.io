@@ -94,7 +94,7 @@ h1, h2, h3, h4, h5, h6, p, div {
   position: absolute;
   display: flex;
   flex-direction: column;
-  top: 30%;
+  top: calc(50% - 125px);
   left: 0;
   right: 0;
 }
@@ -163,18 +163,21 @@ h1, h2, h3, h4, h5, h6, p, div {
 .goldfish.deck-current {
   background-image: url('../../images/goldfish.jpg');
 }
-.millennials1-link, .millennials3-link, .goldfish-link {
+.img-link {
   position: absolute;
-  top: 10px;
+  bottom: 5px;
   right: 20px;
-  z-index: 10;
+  z-index: 15;
   font-size: 0.7em;
   color: white !important;
+  opacity: 0.5;
 }
 .millennials1.deck-previous .img-link, .millennials3.deck-before .img-link, .goldfish.deck-previous .img-link , .goldfish.deck-before .img-link {
   opacity: 0 !important;
 }
-
+.angular2-architecture.img-link {
+  color: black !important;
+}
 
 
 

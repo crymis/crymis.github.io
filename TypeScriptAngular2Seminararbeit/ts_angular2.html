@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Analyse moderner Webanwendungen am
+Beispiel Angular 2.0 und TypeScript</title>
+
+  <meta name="description" content="A jQuery library for modern HTML presentations">
+  <meta name="author" content="Caleb Troughton">
+  <meta name="viewport" content="width=1024, user-scalable=no">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <link rel="shortcut icon" type="image/png" href="images/angular.png">
+  <link rel="icon" type="image/png" href="images/angular.png">
+
+  <!-- Core and extension CSS files -->
+  <link rel="stylesheet" media="screen" href="core/deck.core.css">
+  <link rel="stylesheet" media="screen" href="extensions/goto/deck.goto.css">
+  <link rel="stylesheet" media="screen" href="extensions/menu/deck.menu.css">
+  <link rel="stylesheet" media="screen" href="extensions/navigation/deck.navigation.css">
+  <link rel="stylesheet" media="screen" href="extensions/status/deck.status.css">
+  <link rel="stylesheet" media="screen" href="extensions/scale/deck.scale.css">
+
+  <!-- Style theme. More available in /themes/style/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="themes/style/colors.css">
+  <!-- Own defined styles for presentation -->
+  <link rel="stylesheet" media="screen" href="themes/style/angular-ts.css">
+
+  <!-- code highlighting for <pre><code> tags -->
+  <link rel="stylesheet" href="extensions/code-highlighting/prism.css">
+
+  <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="themes/transition/horizontal-slide.css">
+
+  <!-- Basic black and white print styles -->
+  <link rel="stylesheet" media="print" href="core/print.css">
+
+  <script src="modernizr.custom.js"></script>
+</head>
+
+<body>
+  <div class="deck-container">
+
+
+
+
+
+
+    <!-- Begin slides -->
+
+
+    <!-- Title -->
+    <section class="slide" id="title-slide">
+      <div class="title-screen">
+        <!--<h1>Analyse moderner Webanwendungen mit</h1>-->
+        <div class="image-row">
+          <div class="typescript-logo"></div>
+          <div class="and">+</div>
+          <div class="angular-logo"></div>
+        </div>
+      </div>
+      <div class="presentation-info">HsKA Sommersemester 2016 - Daniel Eckelt</div>
+    </section>
+
+
+
+    <!-- Motivation -->
+    <section class="slide" id="overview">
+      <h2>Motivation</h2>
+      <ul>
+        <li class="slide">
+          <h3>Webapps im Ansturm</h3>
+          <!-- Mobile-First, Geschwindigkeiten und Performance immer wichtiger -->
+          <p>Priorisierung der mobilen Geräte</p>
+        </li>
+        <li class="slide">
+          <h3>Generation Y</h3>
+          <p>Aufgewachsen mit der Technik</p>
+        </li>
+        <div class="fullscreen-wrapper">
+          <div class="slide millennials1 fullscreen">
+            <a class="millennials1-link img-link" href="http://i.imgur.com/JsuTVBL.jpg">http://i.imgur.com/JsuTVBL.jpg</a>
+          </div>
+        </div>
+        <!-- <div class="fullscreen-wrapper">
+          <div class="slide millennials2 fullscreen"></div>
+        </div> -->
+        <div class="fullscreen-wrapper">
+          <div class="slide millennials3 fullscreen">
+            <a class="millennials3-link img-link" href="http://3.bp.blogspot.com/-n02y6XQ0nVs/Vi-V9_5vYWI/AAAAAAAABk0/VO-piPA_KyM/s1600/anuncio-windows-mobile.jpg">http://3.bp.blogspot.com/-n02y6XQ0nVs/Vi-V9_5vYWI/AAAAAAAABk0/VO-piPA_KyM/s1600/anuncio-windows-mobile.jpg</a>
+          </div>
+        </div>
+        <li class="slide">
+          <h3>Aufmerksamkeitsspanne</h3>
+          <!-- 2000: 12 sekunden -->
+          <p>liegt bei Menschen unter 8 Sekunden</p>
+        </li>
+        <div class="fullscreen-wrapper">
+          <div class="slide goldfish fullscreen">
+            <a class="goldfish-link img-link" href="https://www.pinterest.com/pin/259238522274887741/">https://www.pinterest.com/pin/259238522274887741/</a>
+          </div>
+        </div>
+        <li class="slide">
+          <h3>Warum ein neues Framework lernen?</h3>
+          <p>Konkurrenzdruck am IT-Markt</p>
+        </li>
+        <li class="slide">
+          <h3>Warum sich eine neue Sprache aneignen?</h3>
+          <p>TypeScript für komplexe Anwendungen</p>
+        </li>
+      </ul>
+    </section>
+
+
+
+    <!-- Grundlagen Webapps -->
+    <section class="slide" id="WebappBasics">
+      <h2>Grundlagen: Webanwendungen</h2>
+      <ul>
+        <li class="slide">
+        <!-- Auch Single-Page-Application genannt -->
+          <h3>Fat-Client-Architektur</h3>
+          <p>Großteil der Ausführung beim Client</p>
+        </li>
+        <li class="slide">
+          <h3>Progressive Web Apps</h3>
+          <p>Annäherung an native Apps durch u. a. Offline-Fähigkeit</p>
+        </li>
+        <li class="slide basic-web-structure">
+          <h3>Aufbau</h3>
+          <ul>
+            <li>Struktur: HMTL</li>
+            <li>Funktion: JavaScript</li>
+            <li>Styling: CSS</li>
+          </ul>
+        </li>
+        <div class="code-snippets">
+          <div class="slide code code-html">
+<pre><code class="language-markup">&lt;body&gt;
+  &lt;h1 id="title"&gt;Your Name&lt;/h1&gt;
+  &lt;input id="name" type="text" /&gt;
+  &lt;button id="submit"&gt;Submit&lt;/button&gt;
+&lt;/body&gt;</code></pre>
+          </div>
+          <div class="slide code code-javascript">
+<pre><code class="language-javascript">document.getElementById('submit').addEventListener('click', function() {
+  var value = document.getElementById('name').value;
+  var request = new XMLHttpRequest();
+  request.open('POST', 'https//mydatabase.rocks', true);
+  request.send(value);
+});</code></pre>
+          </div>
+          <div class="slide code code-css">
+<pre><code class="language-css">#title {
+  font-size: 1.5em;
+}
+#name {
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+#submit {
+  padding: 12px;
+  background-color: white;
+  color: #567;
+  vertical-align: middle;
+}</code></pre>
+          </div>
+        </div>
+      </ul>
+    </section>
+
+
+    <section class="slide" id="BasicWebApp">
+      <div class="fullscreen-wrapper">
+        <div class="webapp-center">
+          <div id="title">Your Name</div>
+          <input id="name" type="text">
+          <button id="submit">Submit</button>
+          <div id="message"></div>
+        </div>
+      </div>
+      <script>
+        document.getElementById('submit').addEventListener('click', function() {
+          var value = document.getElementById('name').value;
+          document.getElementById('message').innerHTML = "'" + value + "' was sent to https://mydatabase.rocks";
+        });
+      </script>
+    </section>
+
+
+
+    <!-- TypeScript -->
+    <section class="slide" id="TypeScript">
+      <h2>TypeScript</h2>
+      <ul>
+        <li class="slide">
+          <h3>Open Source Programmiersprache</h3>
+          <p>Veröffentlichung durch Microsoft 2012</p>
+        </li>
+        <li class="slide">
+          <h3>Typisiertes Superset von JavaScript</h3>
+          <p>TS-Compiler wandelt TS Code in JS Code</p>
+        </li>
+        <li class="slide">
+          <h3>Vorteile</h3>
+          <p>+ Statische Typisierung</p>
+          <p>+ Verbesserte Code-Qualität</p>
+          <p>+ ECMAScript 2015 (aka ES6) Features</p>
+          <p>+ ECMAScript 2016 Features</p>
+          <!--<iframe class="slide ts-es6" src="http://kangax.github.io/compat-table/es6/#typescript"></iframe>-->
+        </li>
+      </ul>
+    </section>
+
+
+
+    <!-- Typsysten -->
+<!--     <section class="slide" id="Typsystem">
+      <h2>Typsystem</h2>
+      <ul>
+        <li class="slide">
+          <h3>Syntaktische Methode, die fehlerhaftes Programmverhalten aufzeigt</h3>
+          <p>Effiziente Entwicklung durch frühzeitiges Auffinden vieler Fehler</p>
+        </li>
+        <li class="slide">
+          <h3>Nominell</h3>
+          <p>Typen werden durch eindeutigen Namen definiert</p>
+        </li>
+        <li class="slide">
+          <h3>Strukturell</h3>
+          <p>Typen werden druch ihre Struktur definiert</p>
+        </li>
+          <pre class="slide code code-structural"><code class="language-typescript">interface Named {
+  name: string;
+}
+
+class Person {
+  name: string;
+}
+
+let p: Named;
+// OK, because of structural typing
+p = new Person();</code></pre>
+      </ul>
+    </section>
+ -->
+
+
+    <!-- TS-DuckTyping -->
+    <section class="slide" id="TS-Typing">
+      <h2>Typisierung primitiver Datentypen</h2>
+      <pre class="slide code-typing-js"><code class="language-javascript">// JavaScript: Duck-Typing
+var myCount = 4;
+
+function square(count) {
+  return count * count;
+}
+
+alert("Result: " + square(myCount)); // "Result: 16"</code></pre>
+      <div class="slide code-typing-ts">
+      <pre><code class="language-typescript">// TypeScript
+var myCount: number = 4;
+
+function square(count:number):number {
+  return count * count;
+}
+
+alert(`Result: ${square(myCount)}`); // "Result: 16"</code></pre>
+  </div>
+    <!-- this div makes the animation merge ts into js -->
+    <div class="slide compiled-text">Compiled</div>
+    </section>
+
+
+
+
+
+    <!-- TS-Interfaces, Classes -->
+    <section class="slide" id="TS-Classes">
+      <h2>Typisierung komplexer Datentypen</h2>
+      <div class="slide ts-type-warning">
+      <pre class="code-typing-complex"><code class="language-typescript">interface Fernseher {
+  name: string,
+  breite: number,
+  höhe: number,
+  isSmartTv: boolean 
+}
+
+var tv: Fernseher;
+tv = {name: 'LG Signature', breite: '3m', höhe: 2160, isSmartTv: true};</code></pre>
+  <pre class="ts-type-warning-msg slide"><code class="language-typescript">Type "{name: 'LG Signature', breite: '3m', höhe: 2160, isSmartTv: true; }" is not assignable to type "Fernseher".
+Types of property 'breite' are incompatible. Type 'string' is not assignable to type 'number'.</code></pre>
+</div>
+    </section>
+
+
+
+
+
+    <!-- Angular 2 -->
+    <section class="slide ng2" id="Angular-2">
+      <h2>Angular 2</h2>
+      <ul>
+        <li class="slide">
+          <h3>JavaScript Framework, publiziert durch Google</h3>
+          <p>Erster Release Candidate bald fertig</p>
+        </li>
+        <li class="slide">
+          <h3>Implementiert in TypeScript</h3>
+          <p>Einsetzbar in JavaScript, TypeScript und Dart</p>
+        </li>
+        <li class="slide">
+          <h3>Viele Verbesserungen gegenüber Angular 1.x</h3>
+          <p>Bessere Performance erreichbar</p>
+        </li>
+      </ul>
+    </section>
+
+
+
+    <!-- Angular 2 - Architektur -->
+    <section class="slide ng2 ng2-architecture-bg" id="Angular-2-Architektur">
+      <h2>Architektur</h2>
+      <a href="https://angular.io/resources/images/devguide/architecture/overview2.png" class="img-link angular2-architecture">https://angular.io/resources/images/devguide/architecture/overview2.png</a>
+      <div class="ng2 fullscreen-wrapper">
+        <div class="ng2-architecture fullscreen"></div>
+      </div>
+    </section>
+
+
+    <!-- Angular 2 - Code -->
+    <section class="slide ng2" id="Angular-2-Code">
+      <h2>Komponente</h2>
+<pre class="ng2-demo-code-html slide"><code class="language-markup">&lt;h1&gt;Angular 2 Demo&lt;/h1&gt;
+
+&lt;form class=&quot;add-form&quot; (ngSubmit)=&quot;addHero(name)&quot;&gt;
+  &lt;input type=&quot;text&quot; class=&quot;name&quot; [(ngModel)]=&quot;name&quot; required /&gt;
+  &lt;button type=&quot;submit&quot; class=&quot;add-button&quot;&gt;Add&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;div class=&quot;grid grid-pad&quot;&gt;
+  &lt;div class=&quot;col-1-4&quot; *ngFor=&quot;let hero of heroes&quot; (click)=&quot;hero.id !== -1 &amp;&amp; deleteHero(hero)&quot;&gt;
+    &lt;div class=&quot;module hero&quot; [ngClass]=&quot;{loading: hero.id === -1}&quot;&gt;
+      &lt;h4&gt;{{hero.name}}&lt;/h4&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+      <pre class="ng2-demo-code-ts slide"><code class="language-typescript">import { Component } from 'angular2/core';
+import { Hero } from './hero';
+import { HeroService } from './hero.service';
+
+@Component({
+  selector: 'my-app',
+  templateUrl: 'app/app.component.html',
+  styleUrls: ['app/app.component.css'],
+  providers: [HeroService]
+})
+export class AppComponent implements OnInit {
+  heroes: Hero[] = [];
+  name: string = "";
+
+  constructor(private _heroService: HeroService) {}
+
+  ngOnInit() {
+    this._heroService.getHeroes().then(heroes => this.heroes = heroes);
+  }
+  
+  addHero(name: string) {
+    this._heroService.addHero({'id': newId, 'name': name});
+    this.name = "";
+  }
+}</code></pre>
+    </section>
+
+
+
+
+
+    <!-- Angular 2 - Example -->
+    <section class="slide ng2" id="Angular2-Example">
+      <!--<iframe class="angular2-demo" src="http://localhost:3000"></iframe>-->
+      <iframe class="angular2-demo" src="http://crymis.github.io/Angular2Demo"></iframe>
+    </section>
+
+    <!-- Angular 2 - Update von ng1 -->
+    <section class="slide" id="Angular-1-Update">
+      <h2>Update von Angular 1 auf 2</h2>
+      <div class="ng1ng2-upgrade"></div>
+      <ul>
+        <li class="slide">
+          <h3>Scope und Controller entfernt</h3>
+          <p>Modularer Aufbau aus Komponenten</p>
+        </li>
+        <li class="slide">
+          <h3>Two-Way-Databinding verfeinert</h3>
+          <p>Bestimmung der Richtung des Bindings</p>
+        </li>
+        <li class="slide">
+          <h3>Verwendung beider Frameworks zugleich</h3>
+          <p>Inkrementelles Upgrade möglich</p>
+        </li>
+      </ul>
+    </section>
+
+
+
+    <!-- Angular 2 - Ergebnisse -->
+    <section class="slide ng2" id="Angular-2-Ergebnisse">
+      <h2>Fazit</h2>
+      <ul>
+        <li class="slide">
+          <h3>Einsatz von TypeScript verbessert Code-Qualität</h3>
+        </li>
+        <li class="slide">
+          <h3>Angular 2 hat großes Potential als JavaScript Framework</h3>
+        </li>
+        <li class="slide">
+          <h3>Upgrade von Angular 1.x auf 2.0 lohnenswert, da inkrementell möglich</h3>
+        </li>
+        <li class="slide">
+          <h3>Komponenten-Hierarchie stellt nachhaltige und wartbare Struktur dar</h3>
+        </li>
+        <li class="slide">
+          <h3>Angular 2 + TypeScript zu empfehlen (-> gute Dokumentation)</h3>
+        </li>
+      </ul>
+    </section>
+
+
+
+    <!-- LAST SLIDE, Thanks for listening -->
+    <section class="slide end" id="Thanks">
+      <div class="thanks-title">Danke fürs Zuhören</div>
+      <div class="angular-hero-bg"></div>
+    </section>
+
+
+    <!-- TS - JS Playground: LiveCoding -->
+    <section class="slide" id="ts-example">
+      <h2>TS - JS - Playground</h2>
+      <iframe class="ts-playground" src="https://www.typescriptlang.org/play/index.html"></iframe>
+    </section>
+
+
+
+    <!-- deck.navigation snippet -->
+    <!--<div aria-role="navigation">
+      <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+      <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+    </div>-->
+
+    <!-- deck.status snippet -->
+    <!--<p class="deck-status" aria-role="status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>-->
+
+    <!-- deck.goto snippet -->
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+  </div>
+
+<script src="jquery.min.js"></script>
+
+<!-- Deck Core and extensions -->
+<script src="core/deck.core.js"></script>
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<!--<script src="extensions/status/deck.status.js"></script>-->
+<!--<script src="extensions/navigation/deck.navigation.js"></script>-->
+<script src="extensions/scale/deck.scale.js"></script>
+
+<script src="extensions/code-highlighting/prism.js"></script>
+<!-- Initialize the deck -->
+<script>
+$(function() {
+  $.deck('.slide');
+});
+</script>
+
+</body>
+</html>
