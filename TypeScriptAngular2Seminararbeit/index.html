@@ -57,7 +57,7 @@ Beispiel Angular 2.0 und TypeScript</title>
     <!-- Title -->
     <section class="slide" id="title-slide">
       <div class="title-screen">
-        <h1>Analyse moderner Webanwendungen mit</h1>
+        <!--<h1>Analyse moderner Webanwendungen mit</h1>-->
         <div class="image-row">
           <div class="typescript-logo"></div>
           <div class="and">+</div>
@@ -208,10 +208,11 @@ Beispiel Angular 2.0 und TypeScript</title>
         </li>
         <li class="slide">
           <h3>Vorteile</h3>
-          <p>+ Typisierung</p>
+          <p>+ Statische Typisierung</p>
+          <p>+ Verbesserte Code-Qualität</p>
           <p>+ ECMAScript 2015 (aka ES6) Features</p>
           <p>+ ECMAScript 2016 Features</p>
-          <iframe class="slide ts-es6" src="http://kangax.github.io/compat-table/es6/#typescript"></iframe>
+          <!--<iframe class="slide ts-es6" src="http://kangax.github.io/compat-table/es6/#typescript"></iframe>-->
         </li>
       </ul>
     </section>
@@ -256,7 +257,7 @@ p = new Person();</code></pre>
       <pre class="slide code-typing-js"><code class="language-javascript">// JavaScript: Duck-Typing
 var myCount = 4;
 
-var square = function(count) {
+function square(count) {
   return count * count;
 }
 
@@ -265,9 +266,9 @@ alert("Result: " + square(myCount)); // "Result: 16"</code></pre>
       <pre><code class="language-typescript">// TypeScript
 var myCount: number = 4;
 
-var square: (countName: number) => number = function(count) {
+function square(count:number):number {
   return count * count;
-};
+}
 
 alert(`Result: ${square(myCount)}`); // "Result: 16"</code></pre>
   </div>
@@ -325,6 +326,7 @@ Types of property 'breite' are incompatible. Type 'string' is not assignable to 
     <!-- Angular 2 - Architektur -->
     <section class="slide ng2 ng2-architecture-bg" id="Angular-2-Architektur">
       <h2>Architektur</h2>
+      <a href="https://angular.io/resources/images/devguide/architecture/overview2.png" class="img-link angular2-architecture">https://angular.io/resources/images/devguide/architecture/overview2.png</a>
       <div class="ng2 fullscreen-wrapper">
         <div class="ng2-architecture fullscreen"></div>
       </div>
@@ -342,7 +344,7 @@ Types of property 'breite' are incompatible. Type 'string' is not assignable to 
 &lt;/form&gt;
 
 &lt;div class=&quot;grid grid-pad&quot;&gt;
-  &lt;div class=&quot;col-1-4&quot; *ngFor=&quot;#hero of heroes&quot; (click)=&quot;hero.id !== -1 &amp;&amp; deleteHero(hero)&quot;&gt;
+  &lt;div class=&quot;col-1-4&quot; *ngFor=&quot;let hero of heroes&quot; (click)=&quot;hero.id !== -1 &amp;&amp; deleteHero(hero)&quot;&gt;
     &lt;div class=&quot;module hero&quot; [ngClass]=&quot;{loading: hero.id === -1}&quot;&gt;
       &lt;h4&gt;{{hero.name}}&lt;/h4&gt;
     &lt;/div&gt;
