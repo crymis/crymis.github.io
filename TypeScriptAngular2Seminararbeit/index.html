@@ -308,7 +308,7 @@ Types of property 'breite' are incompatible. Type 'string' is not assignable to 
       <ul>
         <li class="slide">
           <h3>JavaScript Framework, publiziert durch Google</h3>
-          <p>Erster Release Candidate bald fertig</p>
+          <p>Zweiter Release Candidate fertig</p>
         </li>
         <li class="slide">
           <h3>Implementiert in TypeScript</h3>
@@ -344,8 +344,8 @@ Types of property 'breite' are incompatible. Type 'string' is not assignable to 
 &lt;/form&gt;
 
 &lt;div class=&quot;grid grid-pad&quot;&gt;
-  &lt;div class=&quot;col-1-4&quot; *ngFor=&quot;let hero of heroes&quot; (click)=&quot;hero.id !== -1 &amp;&amp; deleteHero(hero)&quot;&gt;
-    &lt;div class=&quot;module hero&quot; [ngClass]=&quot;{loading: hero.id === -1}&quot;&gt;
+  &lt;div class=&quot;col-1-4&quot; *ngFor=&quot;let hero of heroes&quot; (click)=&quot;deleteHero(hero)&quot;&gt;
+    &lt;div class=&quot;module hero&quot;&gt;
       &lt;h4&gt;{{hero.name}}&lt;/h4&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -402,7 +402,7 @@ export class AppComponent implements OnInit {
           <p>Bestimmung der Richtung des Bindings</p>
         </li>
         <li class="slide">
-          <h3>Verwendung beider Frameworks zugleich</h3>
+          <h3>Verwendung beider Frameworks zeitgleich</h3>
           <p>Inkrementelles Upgrade möglich</p>
         </li>
       </ul>
