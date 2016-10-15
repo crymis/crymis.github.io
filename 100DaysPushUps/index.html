@@ -59,7 +59,7 @@
 
     p {
         color: rgba(255,255,255,0.65);
-        font-size: 0.5em;
+        font-size: 0.6em;
         -webkit-animation: moveInRight 0.75s;
     }
 
@@ -115,7 +115,16 @@
     }
 
     footer > p {
-    	margin-top: 45px;
+    	margin-top: 35px;
+    }
+
+    #giphyapi {
+    	transition: all 0.3s;
+    	cursor: pointer;
+    }
+    #giphyapi:hover {
+    	animation: rainbow 0.5s infinite;
+    	-webkit-animation: rainbow 0.5s infinite;
     }
 
     .winningShadow {
@@ -143,6 +152,15 @@
     @-webkit-keyframes blurIn {
         0% {-webkit-filter: blur(4px);}
         100% {-webkit-filter: blur(0px);}
+    }
+
+    @-webkit-keyframes rainbow {
+    	0% {color: red;}
+    	20% {color: green;}
+    	40% {color: blue;}
+    	60% {color: yellow;}
+    	80% {color: pink;}
+    	100% {color: violet;}
     }
 
     /* totally sick keyframe animation for showing the finished state */
@@ -177,10 +195,10 @@
     </main>
 
     <footer>
-        <p>CREATED BY <a href="https://github.com/crymis">CRYMIS</a></p>
+        <p>CREATED BY <a href="https://github.com/crymis">CRYMIS</a> <br /><br /> IMAGES OF <a href="http://giphy.com/" target="_blank" id="giphyapi">GIPHY<span></p>
     </footer>
     <audio controls autoplay id="music">
-        <source id="source" src="epic.mp3" type="audio/mp3">
+        <source id="source" src="pushit.mp3" type="audio/mp3">
     </audio>
 
     <script src="jkit_parallax/jquery-1.9.1.min.js"></script>
@@ -189,11 +207,12 @@
 
     	/* some quotes */
     	var quotes = [
-            "WORK HARD!",
+            "WORK HARD",
             "UNLEASH THE BEAST",
             "NEVER GIVE UP",
             "ALMOST THERE",
-            "YOU ARE A MACHINE"
+            "YOU ARE A MACHINE",
+            "NOTHING CAN STOP YOU"
 		];
 
 
@@ -203,8 +222,9 @@
         var days = now - start;
 
         // get random number for random gif image
-        var random = Math.floor(Math.random() * (100-0)+0);
-        var giphyJson = 'http://api.giphy.com/v1/gifs/search?q=pushups+fun&api_key=dc6zaTOxFJmzC&limit=1&offset='+ days;
+        //var random = Math.floor(Math.random() * (100-0)+0);
+        var giphyJson = 'http://api.giphy.com/v1/gifs/search?q=pushups+fun&api_key=dc6zaTOxFJmzC&limit=1&offset='+ (days%5);
+        var imageUrl = '';
         $.getJSON(giphyJson, function( data ) {
           var items = [];
           $.each( data, function( key, val ) {
@@ -220,6 +240,10 @@
         document.getElementById("subtitle").innerHTML = "PUSH-UPS TODAY";
         document.getElementById("quote").innerHTML = days*(days+1)/2 + " PUSH-UPS DONE IN TOTAL";
 
+        document.getElementById("giphyapi").addEventListener('click', function(){
+          document.getElementById("bg").setAttribute("style", "background-image: url(api_giphy_header.gif)");
+        });
+
         $(document).ready(function(){
             $('body').jKit();
             var audio = document.getElementById('music');
@@ -230,6 +254,11 @@
                 $('#madeIt').html("NICE! YOU ARE HALF THROUGH! KEEP GOING!");
                 $('.parallax-container').css('top', '-200px');
             }
+            if(days > 94 && days < 101) {
+            	audio.src = "epic.mp3";
+                audio.load();
+                audio.play();
+            }  
             if(days === 95) {
                 $('#quote').html(quotes[0]);
             }
@@ -248,8 +277,8 @@
             if(days === 100) {
                 $("#days").addClass('winningShadow');
                 $("#subtitle").addClass('winningShadow');
-                $('#madeIt').html("Congratulations!");
-                $('#quote').html("You made 5050 Push-Ups!");
+                $('#madeIt').html("GO GET 'EM");
+                $('#quote').html("YOU DID 5050 PUSH-UPS IN TOTAL");
                 $('.parallax-container').css('top', '300px');
                 audio.src = "epic.mp3";
                 audio.load();
