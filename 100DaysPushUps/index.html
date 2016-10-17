@@ -221,17 +221,20 @@
         var now = Math.floor(new Date().getTime()/1000/60/60/24);
         var days = now - start;
 
-        // get random number for random gif image
+        // get random number for random gif image (each refresh different image)
         //var random = Math.floor(Math.random() * (100-0)+0);
-        var giphyJson = 'http://api.giphy.com/v1/gifs/search?q=pushups+fun&api_key=dc6zaTOxFJmzC&limit=1&offset='+ (days%5);
+        //var rndGiphyJson = 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=fun+pushups';
+        var giphyJson = 'http://api.giphy.com/v1/gifs/search?q=pushups+fun&api_key=dc6zaTOxFJmzC&limit=1&offset='+ (days%10);
         var imageUrl = '';
-        $.getJSON(giphyJson, function( data ) {
-          var items = [];
-          $.each( data, function( key, val ) {
-            items.push(val);
-          });
-          imageUrl = items[0][0].images.fixed_width.webp;
-          document.getElementById("bg").setAttribute("style", "background-image: url("+ imageUrl +")");
+        $.getJSON(giphyJson, function( json ) {
+            //console.log(json.data.image_url);
+            //imageUrl = json.data.image_url;
+            var items = [];
+            $.each( json, function( key, val ) {
+                items.push(val);
+            });
+            imageUrl = items[0][0].images.fixed_width.webp;
+            document.getElementById("bg").setAttribute("style", "background-image: url("+ imageUrl +")");
         });
 
         document.title = days + " Days Push-Ups";
