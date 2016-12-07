@@ -224,7 +224,7 @@
         // get random number for random gif image (each refresh different image)
         //var random = Math.floor(Math.random() * (100-0)+0);
         //var rndGiphyJson = 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=fun+pushups';
-        var giphyJson = 'http://api.giphy.com/v1/gifs/search?q=pushups&api_key=dc6zaTOxFJmzC&limit=1&offset='+ days;
+        var giphyJson = 'http://api.giphy.com/v1/gifs/search?q=pushups&api_key=dc6zaTOxFJmzC&limit=1&offset='+ days-50;
         var imageUrl = '';
         $.getJSON(giphyJson, function( json ) {
             //console.log(json.data.image_url);
