@@ -81,15 +81,19 @@
         top: calc(50% - 100px);
     }
 
+    .parallax-wrapper {
+        position: relative;
+        top: -100px;
+    }
+
     .parallax-container {
         position: relative;
         width: 100%;
     }
 
     .parallax-container .parallax {
-        position: absolute;
-        top: 0px;
-        left: calc(50% - 62px);
+        position: relative;
+        margin: 0 auto;
         text-align: center;
     }
 
@@ -105,6 +109,16 @@
     	width: 100%;
     	color: white;
     	font-size: 1.85em;
+    }
+
+    #quote-info {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 65%;
+        width: 100%;
+        color: white;
+        font-size: 1em;
     }
 
     footer {
@@ -136,6 +150,27 @@
         animation: winningShadowTwo 1.33s;
         -webkit-animation: winningShadowTwo 1.33s;
         -webkit-animation-fill-mode: forwards;
+    }
+
+    .trophyBg {
+        z-index: 10;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .trophy {
+        background-image: url('trophy.svg');
+        background-repeat: no-repeat;
+        width: 300px;
+        height: 300px;
+        filter: invert(1);
+        margin-top: 180px;
     }
 
 
@@ -184,20 +219,27 @@
 </head>
 <body id="bg">
     <main>
-        <div class="parallax-container" data-jkit="[parallax:strength=0.3;axis=both]">
-            <h1 id="days" class="parallax"></h1>
-        </div>
-        <div class="parallax-container" data-jkit="[parallax:strength=0.3;axis=both]">
-            <h2 id="subtitle" class="parallax"></h2>
+        <div class="parallax-wrapper">
+            <div class="parallax-container" data-jkit="[parallax:strength=0.3;axis=both]">
+                <h1 id="days" class="parallax"></h1>
+            </div>
+            <div class="parallax-container" data-jkit="[parallax:strength=0.3;axis=both]">
+                <h2 id="subtitle" class="parallax"></h2>
+            </div>
         </div>
         <p id="quote"></p>
+        <p id="quote-info"></p>
         <h1 id="madeIt"></h1>
+
+        <div class="trophyBg">
+            <div class="trophy"></div>
+        </div>
     </main>
 
     <footer>
         <p>CREATED BY <a href="https://github.com/crymis">CRYMIS</a> <br /><br /> IMAGES OF <a href="http://giphy.com/" target="_blank" id="giphyapi">GIPHY<span></p>
     </footer>
-    <audio controls autoplay id="music">
+    <audio controls autoplay loop id="music">
         <source id="source" src="pushit.mp3" type="audio/mp3">
     </audio>
 
@@ -237,7 +279,7 @@
             document.getElementById("bg").setAttribute("style", "background-image: url("+ imageUrl +")");
         });
 
-        document.title = days + " Days Push-Ups";
+        document.title = 100 + " Days Push-Ups";
 
         document.getElementById("days").innerHTML = days;
         document.getElementById("subtitle").innerHTML = "PUSH-UPS TODAY";
@@ -288,8 +330,11 @@
                 audio.play();
             }
         	if(days > 100) {
+                document.getElementById("days").innerHTML = 100;
                 document.getElementById("subtitle").innerHTML = "PUSH-UPS CHALLENGE";
-                $('#quote').html("YOU DID (AT LEAST) 5050 PUSH-UPS IN TOTAL - SINCE 10.10.2016");
+                $('#quote').html("YOU DID (AT LEAST) 5050 PUSH-UPS IN TOTAL");
+                $('#quote-info').html("SINCE 10.10.2016");
+                $('.parallax-container').css('top', '-100px');
                 audio.src = "epic.mp3";
                 audio.load();
                 audio.play();
