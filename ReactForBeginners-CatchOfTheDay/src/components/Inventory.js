@@ -3,20 +3,21 @@ import AddFishForm from './AddFishForm';
 import base from '../base';
 
 class Inventory extends React.Component {
-    constructor() {
-        super();
-        this.renderInventory = this.renderInventory.bind(this);
-        this.renderLogin = this.renderLogin.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-        this.authenticate = this.authenticate.bind(this);
-        this.logout = this.logout.bind(this);
-        this.authHandler = this.authHandler.bind(this);
+    // not needed at all when binding function with arrow funcion
+    // constructor() {
+    //     super();
+    //     // this.renderInventory = this.renderInventory.bind(this);
+    //     // this.renderLogin = this.renderLogin.bind(this);
+    //     // this.handleChange = this.handleChange.bind(this);
+    //     // this.authenticate = this.authenticate.bind(this);
+    //     // this.logout = this.logout.bind(this);
+    //     // this.authHandler = this.authHandler.bind(this);
+    // }
 
-        this.state = {
-            uid: null,
-            owner: null
-        }
-    }
+    state = {
+        uid: null,
+        owner: null
+    };
 
     // If you need to load data from a remote endpoint, this is a good place to instantiate the network request. 
     // Setting state in this method will trigger a re-rendering.
@@ -29,7 +30,7 @@ class Inventory extends React.Component {
         })
     }
 
-    handleChange(e, key) {
+    handleChange = (e, key) => {
         const fish = this.props.fishes[key];
         // copy of fish and update with new data
         const updatedFish = {
@@ -37,27 +38,27 @@ class Inventory extends React.Component {
             [e.target.name]: e.target.value,
         };
         this.props.updateFish(key, updatedFish);
-    }
+    };
 
-    authenticate(provider) {
+    authenticate = (provider) => {
         console.log(`Login with ${provider}`);
         base.authWithOAuthPopup(provider, this.authHandler);
-    }
+    };
 
-    logout() {
+    logout = () => {
         // firebase: un-authenticate
         base.unauth();
         this.setState({uid: null});
         // delegate event to parent
         this.props.onLogout();
-    }
+    };
 
-    authHandler(err, authData) {
+    authHandler = (err, authData) => {
         console.log(authData);
         if (err) {
             console.error(err);
             return
-        }
+        };
 
         // grab the store info 
         const storeRef = base.database().ref(this.props.storeId);
@@ -81,9 +82,9 @@ class Inventory extends React.Component {
             this.props.onLogin();
 
         });
-    }
+    };
 
-    renderLogin() {
+    renderLogin = () => {
         return (
             <nav className="login">
                 <h2>Inventory</h2>
@@ -92,11 +93,11 @@ class Inventory extends React.Component {
                 <button className="github" onClick={() => this.authenticate('github')}>Log In With GitHub</button>
             </nav>
         )
-    }
+    };
 
-    renderInventory(key) {
+    renderInventory = (key) => {
         const fish = this.props.fishes[key];
-        return(
+        return (
             <div className="fish-edit" key={key}>
                 <input type="text" name="name" value={fish.name} placeholder="Fish Name" onChange={(e) => this.handleChange(e, key)}/>
                 <input type="text" name="price" value={fish.price} placeholder="Fish Price" onChange={(e) => this.handleChange(e, key)}/>
@@ -109,7 +110,7 @@ class Inventory extends React.Component {
                 <button onClick={() => this.props.removeFish(key)}>Remove Fish</button>
             </div>
         )
-    }
+    };
 
     render() {
         const logout = <button onClick={this.logout}>Logout!</button>;
@@ -138,15 +139,17 @@ class Inventory extends React.Component {
             </div>
         )
     }
+
+    static propTypes = {
+        fishes: React.PropTypes.object.isRequired,
+        updateFish: React.PropTypes.func.isRequired,
+        removeFish: React.PropTypes.func.isRequired,
+        addFish: React.PropTypes.func.isRequired,
+        loadSamples: React.PropTypes.func.isRequired,
+        storeId: React.PropTypes.string.isRequired
+    };
+
 }
 
-Inventory.propTypes = {
-    fishes: React.PropTypes.object.isRequired,
-    updateFish: React.PropTypes.func.isRequired,
-    removeFish: React.PropTypes.func.isRequired,
-    addFish: React.PropTypes.func.isRequired,
-    loadSamples: React.PropTypes.func.isRequired,
-    storeId: React.PropTypes.string.isRequired
-};
 
 export default Inventory;
