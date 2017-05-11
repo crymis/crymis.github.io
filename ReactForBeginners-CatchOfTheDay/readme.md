@@ -1,3 +1,7 @@
+
+Finished React for Beginners Tutorial by Wes Bos.
+Deployed project to: https://ns-mgrjehutye.now.sh/
+
 ![](http://wes.io/dgAQ/content)
 
 # React For Beginners — [ReactForBeginners.com](https://ReactForBeginners.com)
