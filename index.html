@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>who cares</title>
+</head>
+<body>
+    You will be redirected...
+
+    <script>
+        // get index of first dot
+        let secSlash = window.location.origin.indexOf('/') + 2;
+        let firstDot = window.location.origin.indexOf('.');
+        // if subdomain detected, then redirect
+        if (window.location.href.match( RegExp(letter,'g') ) || [] ).length > 1) {
+        window.location.replace(`crymis.github.io/${window.location.origin.slice(secSlash, firstDot)}`);
+        }
+    </script>
+
+</body>
+</html>
