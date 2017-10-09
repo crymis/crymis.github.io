@@ -1,22 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>who cares</title>
+    <title>Daniel Eckelt</title>
 </head>
 <body>
-    You will be redirected...
-
-    <script>
-        console.log(window.location.href);
-        // get index of first dot
-        let secSlash = window.location.origin.indexOf('/') + 2;
-        let firstDot = window.location.origin.indexOf('.');
-        // if subdomain detected, then redirect
-        if (window.location.href.match(RegExp('\\.','g')) && window.location.href.match(RegExp('\\.','g')).length > 1) {
-            console.log('redirecting to ', window.location.origin.slice(secSlash, firstDot));
-            window.location.replace(`crymis.github.io/${window.location.origin.slice(secSlash, firstDot)}`);
+    <style type="text/css" media="screen">
+        html, body {
+            height: 100%;
+            margin: 0;
         }
-    </script>
 
+        .grid {
+            min-height: 100%;
+            min-width: 100%;
+            display: grid;
+            grid-template-rows: 25% 50% 25%;
+            grid-template-columns: 15% 70% 15%;
+            justify-items: center;
+        }
+
+        #header {
+            font-size: 2.25rem;
+            color: #B2B2B2;
+            font-family: 'Helvetica', 'Arial', 'sans-serif';
+            text-align: center;
+            align-self: center;
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+        }
+        #header > p {
+            font-size: 0.4em;
+        }
+    </style>
+
+
+    <div class="grid">
+        <header id="header">
+            <div>Daniel Eckelt</div>
+            <p>Frontend Developer - Design Enthusiast - Usability Improver</p>
+        </header>
+    </div>
 </body>
 </html>
