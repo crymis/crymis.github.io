@@ -1,0 +1,67 @@
+body {
+  height: 100vh;
+  min-height: 100vh;
+  background-color: #5199ff;
+}
+
+#dailyui-76 {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.circleSmall {
+  width: 5px;
+  height: 5px;
+  background: #184687;
+  border-radius: 50%;
+}
+
+.spinnerWrapperRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    animation: spinningRight 1.25s infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.spinnerWrapperLeft {
+    width: 20px;
+    height: 20px;
+    animation: spinningLeft 2.75s infinite;
+    animation-timing-function: ease-in;
+}
+
+@keyframes spinningRight {
+  0% { 
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes spinningLeft {
+  0% { 
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
