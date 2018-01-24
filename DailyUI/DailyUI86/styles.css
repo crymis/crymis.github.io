@@ -1,0 +1,165 @@
+body {
+  height: 100vh;
+  min-height: 100vh;
+  background-color: #1C252A;
+  overflow: hidden;
+}
+
+header {
+  position: absolute;
+  font-family: 'Ranga', cursive;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #5EFFB9;
+  width: 100px;
+  top: 50px;
+  right: calc(50% - 50px);
+  z-index: 999;
+}
+
+@keyframes reverseColor {
+  0% {color: #FFCB4F}
+  50% {color: #FFCB4F}
+  51% {color: #5EFFB9}
+  100% {color: #5EFFB9}
+}
+
+#dailyui-86 {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#loadingBox {
+  position: fixed;
+  top: 50vh;
+  left: calc(50vw - 50px);
+  width: 100px;
+  height: 100px;
+  background-color: #5EFFB9;
+  border: 1px solid #5EFFB9;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#fillingBox {
+  position: fixed;
+  top: 50vh;
+  left: calc(50vw - 50px);
+  width: 100px;
+  height: 100px;
+  background-color: #1C252A;
+  border: 1px solid #5EFFB9;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  animation: fillWithColor 6.5s 0s ease-in-out forwards;  
+}
+
+#loading {
+  /*position: fixed;
+  top: calc(50vh + 34px);
+  left: calc(50vw - 24px);*/
+  font-family: 'Ranga', cursive;
+  font-size: 18px;
+  color: #5EFFB9;
+}
+
+#complete {
+  position: fixed;
+  font-family: 'Ranga', cursive;
+  font-size: 20px;
+  color: #5EFFB9;
+  opacity: 0;
+  animation: appear 0.5s 6.45s forwards;
+}
+
+@keyframes appear {
+  0% {opacity: 0; transform: scale(0.6); top: 50vh;}
+  50% {opacity: 0.8}
+  100% {opacity: 1; transform: scale(1); top: calc(50vh - 32px);}
+}
+
+
+.runningCircle1 {
+  position: fixed;
+  top: 15vh;
+  left: 40vw;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #5EFFB9;
+  animation: wireOneCircle 3s 0s linear forwards;
+}
+
+.runningCircle2 {
+  position: fixed;
+  top: 10vh;
+  left: 90vw;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #5EFFB9;
+  animation: wireTwoCircle 4s 0s linear forwards;
+}
+
+.runningCircle3 {
+  position: fixed;
+  top: 15vh;
+  left: 40vw;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #5EFFB9;
+  opacity: 0;
+  transform: scale(0);
+  animation: wireOneCircle 3s 1.5s linear forwards;
+}
+
+.runningCircle4 {
+  position: fixed;
+  top: 10vh;
+  left: 90vw;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #5EFFB9;
+  opacity: 0;
+  animation: wireTwoCircle 4s 2.5s linear forwards;
+}
+
+
+@keyframes wireOneCircle {
+  0%  {opacity: 1; transform: scale(0) translateY(0) translateX(0);}
+  30%  {opacity: 1; transform: scale(1) translateY(10vh) translateX(0);}
+  50% {opacity: 1; transform: scale(1) translateY(10vh) translateX(-10vw);}
+  70% {opacity: 1; transform: scale(1) translateY(20vh) translateX(-10vw);}
+  90% {opacity: 1; transform: scale(1) translateY(20vh) translateX(10vw);}
+  100% {opacity: 1; transform: scale(1) translateY(35vh) translateX(10vw);}
+}
+
+@keyframes wireTwoCircle {
+  0%  {opacity: 1; transform: scale(0) translateY(0) translateX(0);}
+  20%  {opacity: 1; transform: scale(1) translateY(0) translateX(-20vw);}
+  50% {opacity: 1; transform: scale(1) translateY(10vh) translateX(-20vw);}
+  70% {opacity: 1; transform: scale(1) translateY(10vh) translateX(-28vw);}
+  90% {opacity: 1; transform: scale(1) translateY(42vh) translateX(-28vw);}
+  100% {opacity: 1; transform: scale(1) translateY(42vh) translateX(-40vw);}
+}
+
+@keyframes fillWithColor {
+  0%  {height: 100px;}
+  45% {height: 100px;}
+  50% {height: 75px;}
+  58% {height: 75px;}
+  62% {height: 50px;}
+  68% {height: 50px;}
+  75% {height: 25px;}
+  98% {height: 25px;}
+  100% {height: 0px;}
+}
