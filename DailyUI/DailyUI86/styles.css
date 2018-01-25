@@ -140,7 +140,7 @@ header {
   50% {opacity: 1; transform: scale(1) translateY(10vh) translateX(-10vw);}
   70% {opacity: 1; transform: scale(1) translateY(20vh) translateX(-10vw);}
   90% {opacity: 1; transform: scale(1) translateY(20vh) translateX(10vw);}
-  100% {opacity: 1; transform: scale(1) translateY(35vh) translateX(10vw);}
+  100% {opacity: 1; transform: scale(1) translateY(37vh) translateX(10vw);}
 }
 
 @keyframes wireTwoCircle {
