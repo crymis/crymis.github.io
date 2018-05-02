@@ -21,23 +21,22 @@
         }
 
         #header {
-            font-size: 2.25rem;
+            font-size: 1.25rem;
             color: #B2B2B2;
             font-family: 'Helvetica', 'Arial', 'sans-serif';
-            text-align: center;
+            text-align: left;
             align-self: center;
             grid-column: 2 / 3;
             grid-row: 2 / 3;
+            width: 780px;
         }
-        #header > p {
+        /*#header > p {
             font-size: 0.4em;
-        }
+        }*/
 
-        .var-highlight{
-            color: #C0AD60;
-        }
+
         .string-highlight{
-            color: rgba(253, 149, 90, 0.8);
+            color: rgb(42,86,198);
         }
 
         #typewriter{
@@ -70,17 +69,18 @@
 
     <div class="grid">
         <header id="header">
-            <div>Daniel Eckelt</div>
-            <p>Frontend Developer - Design Enthusiast - Usability Engineer</p>
+            <!-- <div>Daniel Eckelt</div>
+            <p>Frontend Developer - Design Enthusiast - Usability Engineer</p> -->
 
             <pre id="typewriter">
-                <span class="var-highlight">var</span> object = {
-                    name: <span class="string-highlight">'Foo'</span>,
-                    type: <span class="string-highlight">'Bar'</span>,
-                    location: <span class="string-highlight">'Earth'</span>,
-                    properties:[<span class="string-highlight">'Javascript'</span>,
-                                <span class="string-highlight">'HTML'</span>,
-                                <span class="string-highlight">'CSS'</span>];
+                About = {
+                    name:     <span class="string-highlight">'Daniel Eckelt'</span>,
+                    location: <span class="string-highlight">'Germany, Ettlingen'</span>,
+                    facts:    [
+                        <span class="string-highlight">'Frontend Developer'</span>,
+                        <span class="string-highlight">'Design Enthusiast'</span>,
+                        <span class="string-highlight">'Usability Engineer'</span>
+                    ];
                 }; 
             </pre>
         </header>
