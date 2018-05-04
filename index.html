@@ -8,6 +8,7 @@
         html, body {
             height: 100%;
             margin: 0;
+            font-family: 'Helvetica', 'Arial', 'sans-serif';
         }
 
         .grid {
@@ -20,23 +21,39 @@
             justify-items: center;
         }
 
-        #header {
+        header {
             font-size: 1.25rem;
             color: #B2B2B2;
-            font-family: 'Helvetica', 'Arial', 'sans-serif';
             text-align: left;
             align-self: center;
             grid-column: 2 / 3;
             grid-row: 2 / 3;
             width: 780px;
         }
-        /*#header > p {
-            font-size: 0.4em;
-        }*/
+
+        footer {
+            grid-column: 3;
+            grid-row: 3;
+            width: 100%;
+            display: flex;
+            align-self: end;
+            justify-content: flex-end;
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: rgb(9, 151, 197);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: rgb(12, 102, 132);
+        }
 
 
         .string-highlight{
-            color: rgb(42,86,198);
+            color: rgb(9, 151, 197);
         }
 
         #typewriter{
@@ -68,22 +85,22 @@
 
 
     <div class="grid">
-        <header id="header">
-            <!-- <div>Daniel Eckelt</div>
-            <p>Frontend Developer - Design Enthusiast - Usability Engineer</p> -->
-
+        <header>
             <pre id="typewriter">
                 About = {
                     name:     <span class="string-highlight">'Daniel Eckelt'</span>,
                     location: <span class="string-highlight">'Germany, Ettlingen'</span>,
-                    facts:    [
-                        <span class="string-highlight">'Frontend Developer'</span>,
-                        <span class="string-highlight">'Design Enthusiast'</span>,
-                        <span class="string-highlight">'Usability Engineer'</span>
-                    ];
+                    facts: [
+                              <span class="string-highlight">'Frontend Developer'</span>,
+                              <span class="string-highlight">'Design Enthusiast'</span>,
+                              <span class="string-highlight">'Usability Engineer'</span>
+                           ];
                 }; 
             </pre>
         </header>
+        <footer>
+            <a href="imprint.html">Imprint</a>
+        </footer>
     </div>
 
     <script>
@@ -96,7 +113,7 @@
                 tag = "",
                 writingTag = false,
                 tagOpen = false,
-                typeSpeed = 100,
+                typeSpeed = 30,
             tempTypeSpeed = 0;
 
             var type = function() {
