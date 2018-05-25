@@ -11,6 +11,10 @@
             font-family: 'Helvetica', 'Arial', 'sans-serif';
         }
 
+        a {
+            color: rgb(9, 151, 197);
+        }
+
         .grid {
             height: 100%;
             min-height: 100%;
@@ -19,25 +23,34 @@
             grid-template-rows: 25% 50% 25%;
             grid-template-columns: 15% 70% 15%;
             justify-items: center;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0%{opacity: 0;}
+            100%{opacity: 1;}
         }
         
         #content {
-            font-size: 1.25rem;
+            font-size: 0.8rem;
             color: #B2B2B2;
             text-align: left;
             align-self: center;
             grid-column: 2 / 3;
             grid-row: 2 / 3;
-            width: 780px;
+            width: 666px;
         }
     </style>
 
     <div class="grid">
         <div id="content">
             <h1>Imprint</h1>
-            Daniel Eckelt
-            Seminarstr. 6
-            76275 Ettlingen
+            Daniel Eckelt <br/>
+            Seminarstr. 6 <br/>
+            76275 Ettlingen <br/>
+            <br />
+            <a href="mailto:daniel.eckelt@gmail.com">daniel.eckelt8@gmail.com</a>
+            <br /><br />
 
             <h2>Accountability for content</h2>
             The contents of my pages have been created with the utmost care. However, I cannot guarantee the contents' accuracy, completeness or topicality. According to statutory provisions, I am furthermore responsible for my own content on these web page. In this context, please note that I am accordingly not obliged to monitor merely the transmitted or saved information of third parties, or investigate circumstances pointing to illegal activity. My obligations to remove or block the use of information under generally applicable laws remain unaffected by this as per §§ 8 to 10 of the Telemedia Act (TMG).

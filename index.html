@@ -29,6 +29,23 @@
             grid-column: 2 / 3;
             grid-row: 2 / 3;
             width: 780px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 100%;
+            margin: 0 auto;
+            margin-bottom: 50px;
+            animation: blob 9.5s;
+        }
+
+        @keyframes blob{
+            0%{transform: scale(0);}
+            96%{transform: scale(0);}
+            100%{transform: scale(1);}
         }
 
         footer {
@@ -38,8 +55,8 @@
             display: flex;
             align-self: end;
             justify-content: flex-end;
-            margin-right: 20px;
-            margin-bottom: 10px;
+            margin-right: 100px;
+            margin-bottom: 20px;
         }
 
         a {
@@ -52,7 +69,8 @@
         }
 
 
-        .string-highlight{
+        .string-highlight {
+            font-weight: bold;
             color: rgb(9, 151, 197);
         }
 
@@ -86,11 +104,12 @@
 
     <div class="grid">
         <header>
+            <img class="profile-pic" src="https://scontent-frx5-1.cdninstagram.com/vp/54db791fd193c31ab5c08283df4b4315/5B93C056/t51.2885-19/s320x320/18299179_301172106962736_8713617564086829056_a.jpg"/>
             <pre id="typewriter">
                 About = {
                     name:     <span class="string-highlight">'Daniel Eckelt'</span>,
                     location: <span class="string-highlight">'Germany, Ettlingen'</span>,
-                    facts: [
+                    me:    [
                               <span class="string-highlight">'Frontend Developer'</span>,
                               <span class="string-highlight">'Design Enthusiast'</span>,
                               <span class="string-highlight">'Usability Engineer'</span>
@@ -147,7 +166,7 @@
                     t.innerHTML += HTML[cursorPosition];
                 }
                 if (writingTag === true && HTML[cursorPosition] === ">") {
-                    tempTypeSpeed = (Math.random() * typeSpeed) + 50;
+                    tempTypeSpeed = (Math.random() * typeSpeed) + 20;
                     writingTag = false;
                     if (tagOpen) {
                         var newSpan = document.createElement("span");
