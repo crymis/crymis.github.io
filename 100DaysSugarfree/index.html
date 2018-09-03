@@ -245,6 +245,11 @@
             days = 0;
         }
 
+        // set default image and error text
+        document.getElementById("bg").setAttribute("style", `background-image: url(images/candy.jpg)`);
+        document.title = `${days} Days ${topic}`;
+        document.getElementById("quote").innerHTML = 'Coult not load image... sorry :(';
+
         // get random image of topic and show in background
         const clientId = '634963dbf1f34470c191e2d1e2929d58afd3d0855be5e00641c8fa8e0d00dd22';
         const url = `https://api.unsplash.com/photos/random?client_id=${clientId}&query=${imagesQuery}`;
@@ -253,8 +258,6 @@
             .then(json => json.urls.regular)
             .then(picUrl => {
                 document.getElementById("bg").setAttribute("style", `background-image: url(${picUrl})`);
-                document.title = `${days} Days ${topic}`;
-
                 document.getElementById("days").innerHTML = days;
                 document.getElementById("subtitle").innerHTML = `Days of living ${topic.toLowerCase()} ${togo}`;
                 document.getElementById("quote").innerHTML = quotes[days % quotes.length];
