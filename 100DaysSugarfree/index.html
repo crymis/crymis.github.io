@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>100 Days Sugarfree</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style type="text/css">
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            font-family: 'Helvetica', 'sans-serif';
+            font-weight: 300;
+            text-shadow: 1px 1px 10px #63666C;
+        }
+
+        html, body {
+            height: 100%;
+            background-color: black;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            position: relative;
+            animation: blurIn .5s;
+        }
+
+        /* override default hightlighting color */
+        ::selection, :focus {
+            background: rgba(150,150,150,0.2); /* WebKit/Blink Browsers */
+            outline-color: #F5EDB5;
+        }
+        ::-moz-selection {
+            background: rgba(150,150,150,0.2); /* Gecko Browsers */
+        }
+
+        h1, h2, h3, a {
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 14em;
+            animation: moveInTop 1s cubic-bezier(.5,.2,.1,.8);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2em;
+            animation: moveInTop 1s cubic-bezier(.5,.2,.1,.8);
+        }
+
+        p {
+            color: rgba(255,255,255,0.65);
+            font-size: 1.25em;
+            animation: moveInRight 0.75s;
+        }
+
+        a {
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: white;
+            border-bottom: 1px solid white;
+            padding-bottom: 4px;
+            transition: all 0.25s;
+        }
+
+        main {
+            height: 90%;
+            position: relative;
+            top: calc(50% - 100px);
+        }
+
+        .parallax-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .parallax-container .parallax {
+            position: absolute;
+            top: 0px;
+            left: calc(50% - 195px);
+            text-align: center;
+        }
+
+        h2.parallax {
+            margin-top: 90px;
+        }
+
+        #quote {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            top: 55%;
+            width: 100%;
+            color: white;
+            font-size: 1.5em;
+        }
+
+        footer {
+            height: 10%;
+            position: relative;
+            display: flex;
+            text-align: right;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding: 12px;
+            font-size: 0.7em;
+        }
+
+        .winningShadow {
+            animation: winningShadow 1.33s infinite;
+            animation: winningShadow 1.33s infinite;
+        }
+
+        .winningShadowTwo {
+            animation: winningShadowTwo 1.33s;
+            animation: winningShadowTwo 1.33s;
+            animation-fill-mode: forwards;
+        }
+
+        audio {
+            display: none;
+        }
+
+
+        @keyframes moveInTop {
+            0% {transform: translate(0, -100%); opacity: 0;}
+            100% {transform: translate(0, 0); opacity: 1;}
+        }
+
+        @keyframes moveInRight {
+            0% {transform: translate(100%, 0); opacity: 0;}
+            100% {transform: translate(0, 0); opacity: 1;}
+        }
+
+        @keyframes blurIn {
+            0% {filter: blur(4px);}
+            100% {filter: blur(0px);}
+        }
+
+        /* totally sick keyframe animation for showing the finished state */
+        @keyframes winningShadow {
+            33% {transform: scale(1.5); text-shadow: 1px 1px rgba(166, 182, 108, 0.66), 2px 2px rgba(166, 182, 108, 0.66), 3px 3px rgba(166, 182, 108, 0.66), 4px 4px rgba(166, 182, 108, 0.66), 5px 5px rgba(166, 182, 108, 0.66), 6px 6px rgba(166, 182, 108, 0.66), 7px 7px rgba(166, 182, 108, 0.66), 8px 8px rgba(166, 182, 108, 0.66), 9px 9px rgba(166, 182, 108, 0.66), 10px 10px rgba(166, 182, 108, 0.66);}
+            66% {text-shadow: -1px -1px rgba(166, 182, 108, 0.66), -2px -2px rgba(166, 182, 108, 0.66), -3px -3px rgba(166, 182, 108, 0.66), -4px -4px rgba(166, 182, 108, 0.66), -5px -5px rgba(166, 182, 108, 0.66), -6px -6px rgba(166, 182, 108, 0.66), -7px -7px rgba(166, 182, 108, 0.66), -8px -8px rgba(166, 182, 108, 0.66), -9px -9px rgba(166, 182, 108, 0.66), -10px -10px rgba(166, 182, 108, 0.66);}
+            99% {transform: scale(1); text-shadow: 0px 0px rgba(166, 182, 108, 0.66);}
+        }
+
+        @keyframes winningShadowTwo {
+            from {text-shadow: 0px 0px rgba(166, 182, 108, 0.66);}
+            to {font-size: 50pt; text-shadow: -1px -1px rgba(166, 182, 108, 0.66), -2px -2px rgba(166, 182, 108, 0.66), -3px -3px rgba(166, 182, 108, 0.66), -4px -4px rgba(166, 182, 108, 0.66), -5px -5px rgba(166, 182, 108, 0.66), -6px -6px rgba(166, 182, 108, 0.66), -7px -7px rgba(166, 182, 108, 0.66), -8px -8px rgba(166, 182, 108, 0.66), -9px -9px rgba(166, 182, 108, 0.66), -10px -10px rgba(166, 182, 108, 0.66), -11px -11px rgba(166, 182, 108, 0.66), -12px -12px rgba(166, 182, 108, 0.66);}
+        }
+
+        @font-face {
+            font-family: 'beacon';
+            src: url('beacon.ttf') format('truetype');
+        }
+    </style>
+</head>
+
+
+<body id="bg">
+    <main>
+        <div class="parallax-container" data-jkit="[parallax:strength=0.3;axis=both]">
+            <h1 id="days" class="parallax"></h1>
+        </div>
+        <div class="parallax-container" data-jkit="[parallax:strength=0.3;axis=both]">
+            <h2 id="subtitle" class="parallax"></h2>
+        </div>
+        <p id="quote"></p>
+        <h1 id="madeIt"></h1>
+    </main>
+
+    <footer>
+        <p>Created by <a href="https://github.com/crymis" target="_blank">Crymis</a></p>
+    </footer>
+
+    <!-- Add Audio if you wish -->
+    <!--
+    <audio controls autoplay id="music">
+        <source id="source" src="hacksong.mp3" type="audio/mp3">
+    </audio> -->
+
+
+
+
+    <script src="jkit_parallax/jquery-1.9.1.min.js"></script>
+    <script src="jkit_parallax/jquery.jkit.custom.1.2.16.min.js"></script>
+    <script>
+
+        /* #############################
+        *  ### CONFIG YOUR CHALLENGE ###
+        * ############################# */
+
+        // start date
+        const day = 3;
+        const month = 9;
+        const year = 2018;
+
+        // topic
+        const topic = 'Sugarfree';
+        const imagesQuery = 'sugar';
+
+        // quotes
+        const quotes = [
+            'So much sugar!',
+            'Candy',
+            'Delicious, tasty food',
+            'All those colors',
+            'Honey',
+            'Sirup',
+            'Choclate',
+            'White bread',
+            'Skittles',
+        ];
+
+
+
+
+
+        /* #############################
+        *  ### CODE ###
+        * ############################# */
+
+    	// calculate date
+        var start = Math.floor(new Date(year, month - 1, day - 1).getTime()/1000/60/60/24);
+        var now = Math.floor(new Date().getTime()/1000/60/60/24);
+        var days = now - start - 2;
+        var togo = "";
+        // count down until 100 days are reached, then count up.
+        if (days <= 100) {
+        	days = 100 - days;
+        	togo = " to go"
+        } else {
+            days = 0;
+        }
+
+        // get random image of topic and show in background
+        const clientId = '634963dbf1f34470c191e2d1e2929d58afd3d0855be5e00641c8fa8e0d00dd22';
+        const url = `https://api.unsplash.com/photos/random?client_id=${clientId}&query=${imagesQuery}`;
+        fetch(url)
+            .then(response => response.json())
+            .then(json => json.urls.regular)
+            .then(picUrl => {
+                document.getElementById("bg").setAttribute("style", `background-image: url(${picUrl})`);
+                document.title = `${days} Days ${topic}`;
+
+                document.getElementById("days").innerHTML = days;
+                document.getElementById("subtitle").innerHTML = `Days of living ${topic.toLowerCase()} ${togo}`;
+                document.getElementById("quote").innerHTML = quotes[days % quotes.length];
+
+                $(document).ready(function(){
+                    $('body').jKit();
+                    var audio = document.getElementById('music');
+                    // center quote
+                    if(days === 50) {
+                        document.getElementById("bg").setAttribute("style", "background-image: url(images/meatHalf.jpg)");
+                        $("#days").addClass('winningShadowTwo');
+                        $("#subtitle").addClass('winningShadowTwo');
+                        $('#madeIt').html("NICE! YOU ARE HALF THROUGH! KEEP GOING!");
+                        $('.parallax-container').css('top', '-200px');
+                    }
+                    if(days === 5) {
+                        document.getElementById("bg").setAttribute("style", "background-image: url(images/final_soclose.jpg)");
+                        $('#quote').html(quotes[0]);
+                    }
+                    if(days === 4) {
+                        document.getElementById("bg").setAttribute("style", "background-image: url(images/final_almost.jpg)");
+                        $('#quote').html(quotes[1]);
+                    }
+                    if(days === 3) {
+                        document.getElementById("bg").setAttribute("style", "background-image: url(images/final_just.png)");
+                        $('#quote').html(quotes[2]);
+                        // audio.src = "bacon.mp3";
+                        // audio.load();
+                        // audio.play();
+                    }
+                    if(days === 2) {
+                        document.getElementById("bg").setAttribute("style", "background-image: url(images/final_bacon.jpg)");
+                        $('#quote').html(quotes[3]);
+                    }
+                    if(days === 1) {
+                        document.getElementById("bg").setAttribute("style", "background-image: url(images/meatHalf.jpg)");
+                        $('#quote').html(quotes[4]);
+                        // audio.src = "bacon.mp3";
+                        // audio.load();
+                        // audio.play();
+                    }
+                    if(days === 0) {
+                        document.getElementById("bg").setAttribute("style", "background-image: url(images/meatMadeIt.jpg)");
+                        $("#days").addClass('winningShadow');
+                        $("#subtitle").addClass('winningShadow');
+                        $('#madeIt').html("Congratulations!");
+                        $('#quote').html(`You are the Master of the ${topic} Universe`);
+                        $('.parallax-container').css('top', '300px');
+                        // audio.src = "epic.mp3";
+                        // audio.load();
+                        // audio.play();
+                    }
+                });
+            })
+
+    </script>
+</body>
+</html>
