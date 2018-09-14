@@ -207,6 +207,9 @@
         const month = 9;
         const year = 2018;
 
+        // days of pause
+        const pauseDays = 7;
+
         // topic
         const topic = 'Sugarfree';
         const imagesQuery = 'sugar';
@@ -235,7 +238,7 @@
     	// calculate date
         var start = Math.floor(new Date(year, month - 1, day - 1).getTime()/1000/60/60/24);
         var now = Math.floor(new Date().getTime()/1000/60/60/24);
-        var days = now - start - 2;
+        var days = now - start - 2 - pauseDays;
         var togo = "";
         // count down until 100 days are reached, then count up.
         if (days <= 100) {
