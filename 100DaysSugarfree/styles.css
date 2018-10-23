@@ -1,0 +1,153 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	font-family: 'Helvetica', 'sans-serif';
+	font-weight: 300;
+	text-shadow: 1px 1px 10px #63666C;
+}
+
+html, body {
+	height: 100%;
+	background-color: black;
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
+	position: relative;
+	animation: blurIn .5s;
+}
+
+/* override default hightlighting color */
+::selection, :focus {
+	background: rgba(150,150,150,0.2); /* WebKit/Blink Browsers */
+	outline-color: #F5EDB5;
+}
+::-moz-selection {
+	background: rgba(150,150,150,0.2); /* Gecko Browsers */
+}
+
+h1, h2, h3, a {
+	color: white;
+}
+
+h1 {
+	text-align: center;
+	font-size: 14em;
+	animation: moveInTop 1s cubic-bezier(.5,.2,.1,.8);
+}
+
+h2 {
+	text-align: center;
+	font-size: 2em;
+	animation: moveInTop 1s cubic-bezier(.5,.2,.1,.8);
+}
+
+p {
+	color: rgba(255,255,255,0.65);
+	font-size: 1.25em;
+	animation: moveInRight 0.75s;
+}
+
+a {
+	color: rgba(255,255,255,0.65);
+	text-decoration: none;
+}
+
+a:hover {
+	color: white;
+	border-bottom: 1px solid white;
+	padding-bottom: 4px;
+	transition: all 0.25s;
+}
+
+main {
+	height: 90%;
+	position: relative;
+	top: calc(50% - 100px);
+}
+
+.parallax-container {
+	position: relative;
+	width: 100%;
+}
+
+.parallax-container .parallax {
+	position: absolute;
+	top: 0px;
+	left: calc(50% - 195px);
+	text-align: center;
+}
+
+h2.parallax {
+	margin-top: 90px;
+}
+
+#quote {
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	top: 55%;
+	width: 100%;
+	color: white;
+	font-size: 1.5em;
+}
+
+footer {
+	height: 10%;
+	position: relative;
+	display: flex;
+	text-align: right;
+	justify-content: flex-end;
+	align-items: flex-end;
+	padding: 12px;
+	font-size: 0.7em;
+}
+
+.winningShadow {
+	animation: winningShadow 1.33s infinite;
+	animation: winningShadow 1.33s infinite;
+}
+
+.winningShadowTwo {
+	animation: winningShadowTwo 1.33s;
+	animation: winningShadowTwo 1.33s;
+	animation-fill-mode: forwards;
+}
+
+audio {
+	display: none;
+}
+
+
+@keyframes moveInTop {
+	0% {transform: translate(0, -100%); opacity: 0;}
+	100% {transform: translate(0, 0); opacity: 1;}
+}
+
+@keyframes moveInRight {
+	0% {transform: translate(100%, 0); opacity: 0;}
+	100% {transform: translate(0, 0); opacity: 1;}
+}
+
+@keyframes blurIn {
+	0% {filter: blur(4px);}
+	100% {filter: blur(0px);}
+}
+
+/* totally sick keyframe animation for showing the finished state */
+@keyframes winningShadow {
+	33% {transform: scale(1.5); text-shadow: 1px 1px rgba(166, 182, 108, 0.66), 2px 2px rgba(166, 182, 108, 0.66), 3px 3px rgba(166, 182, 108, 0.66), 4px 4px rgba(166, 182, 108, 0.66), 5px 5px rgba(166, 182, 108, 0.66), 6px 6px rgba(166, 182, 108, 0.66), 7px 7px rgba(166, 182, 108, 0.66), 8px 8px rgba(166, 182, 108, 0.66), 9px 9px rgba(166, 182, 108, 0.66), 10px 10px rgba(166, 182, 108, 0.66);}
+	66% {text-shadow: -1px -1px rgba(166, 182, 108, 0.66), -2px -2px rgba(166, 182, 108, 0.66), -3px -3px rgba(166, 182, 108, 0.66), -4px -4px rgba(166, 182, 108, 0.66), -5px -5px rgba(166, 182, 108, 0.66), -6px -6px rgba(166, 182, 108, 0.66), -7px -7px rgba(166, 182, 108, 0.66), -8px -8px rgba(166, 182, 108, 0.66), -9px -9px rgba(166, 182, 108, 0.66), -10px -10px rgba(166, 182, 108, 0.66);}
+	99% {transform: scale(1); text-shadow: 0px 0px rgba(166, 182, 108, 0.66);}
+}
+
+@keyframes winningShadowTwo {
+	from {text-shadow: 0px 0px rgba(166, 182, 108, 0.66);}
+	to {font-size: 50pt; text-shadow: -1px -1px rgba(166, 182, 108, 0.66), -2px -2px rgba(166, 182, 108, 0.66), -3px -3px rgba(166, 182, 108, 0.66), -4px -4px rgba(166, 182, 108, 0.66), -5px -5px rgba(166, 182, 108, 0.66), -6px -6px rgba(166, 182, 108, 0.66), -7px -7px rgba(166, 182, 108, 0.66), -8px -8px rgba(166, 182, 108, 0.66), -9px -9px rgba(166, 182, 108, 0.66), -10px -10px rgba(166, 182, 108, 0.66), -11px -11px rgba(166, 182, 108, 0.66), -12px -12px rgba(166, 182, 108, 0.66);}
+}
+
+@font-face {
+	font-family: 'beacon';
+	src: url('beacon.ttf') format('truetype');
+}
