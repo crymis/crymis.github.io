@@ -8,7 +8,7 @@ const month = 9;
 const year = 2018;
 
 // days of pause
-const pauseDays = 7 + 1 + 22; // conferencesW1: 6.09-12.09 + Köln: 21.10 + Thailand: 24.11-15.12
+const pauseDays = 7 + 1 + 22 + 1; // conferencesW1: 6.09-12.09 + Köln: 21.10 + Thailand: 24.11-15.12 + christmas
 
 // topic
 const topic = 'Sugarfree';
