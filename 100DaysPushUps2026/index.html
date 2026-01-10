@@ -15,6 +15,7 @@
 </head>
 
 <body id="bg">
+    <button id="mute-button" aria-label="Toggle mute">🔊</button>
     <main>
         <h3 id="today"></h3>
         <div class="parallax-wrapper">
@@ -107,6 +108,17 @@
                 $('#checkbox-container').fadeOut(500, function () {
                     $('#quote').css('display', 'flex').hide().fadeIn(500);
                 });
+            }
+        });
+
+        document.getElementById("mute-button").addEventListener('click', function () {
+            var audio = document.getElementById('music');
+            if (audio.muted) {
+                audio.muted = false;
+                this.innerHTML = '🔊';
+            } else {
+                audio.muted = true;
+                this.innerHTML = '🔇';
             }
         });
 
