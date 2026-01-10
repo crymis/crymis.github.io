@@ -1,0 +1,311 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-family: 'WhiteFlame', 'Helvetica', 'sans-serif';
+    font-weight: 300;
+    text-shadow: 1px 1px 10px #63666C;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+    -webkit-animation: blurIn .5s;
+}
+
+/* override default hightlighting color */
+::selection,
+:focus {
+    background: rgba(150, 150, 150, 0.2);
+    /* WebKit/Blink Browsers */
+    outline-color: #F5EDB5;
+}
+
+::-moz-selection {
+    background: rgba(150, 150, 150, 0.2);
+    /* Gecko Browsers */
+}
+
+h1,
+h2,
+h3,
+a {
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    font-size: 14em;
+    -webkit-animation: moveInTop 1s cubic-bezier(.5, .2, .1, .8);
+}
+
+h2 {
+    text-align: center;
+    font-size: 4em;
+    -webkit-animation: moveInTop 1s cubic-bezier(.5, .2, .1, .8);
+}
+
+h3 {
+    position: fixed;
+    top: 30px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.6em;
+    -webkit-animation: moveInRight 0.75s;
+}
+
+a {
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    border-bottom: 1px solid white;
+    padding-bottom: 4px;
+    transition: all 0.25s;
+}
+
+main {
+    height: 90%;
+    position: relative;
+    top: calc(50% - 100px);
+}
+
+.parallax-wrapper {
+    position: relative;
+    top: -100px;
+}
+
+.parallax-container {
+    position: relative;
+    width: 100%;
+}
+
+.parallax-container .parallax {
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2.parallax {
+    margin-top: 90px;
+}
+
+#quote {
+    display: none;
+    justify-content: center;
+    position: absolute;
+    top: 55%;
+    width: 100%;
+    color: white;
+    font-size: 1.85em;
+}
+
+#checkbox-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 55%;
+    width: 100%;
+    color: white;
+    font-size: 2em;
+    font-weight: 900;
+    cursor: pointer;
+    text-shadow: 2px 2px 20px #fff;
+}
+
+#checkbox-container input[type="checkbox"] {
+    width: 35px;
+    height: 35px;
+    margin-right: 25px;
+    cursor: pointer;
+    transform: scale(1.5);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 3px solid white;
+    background-color: transparent;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+#checkbox-container input[type="checkbox"]:checked {
+    background-color: white;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+#checkbox-container label {
+    cursor: pointer;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+#quote-info {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 60%;
+    width: 100%;
+    color: white;
+    font-size: 1em;
+}
+
+footer {
+    height: 10%;
+    text-align: right;
+    margin-right: 30px;
+    position: relative;
+}
+
+footer>p {
+    margin-top: 35px;
+}
+
+#giphyapi {
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+#giphyapi:hover {
+    animation: rainbow 0.5s infinite;
+    -webkit-animation: rainbow 0.5s infinite;
+}
+
+.winningShadow {
+    animation: winningShadow 1.33s infinite;
+    -webkit-animation: winningShadow 1.33s infinite;
+}
+
+.winningShadowTwo {
+    animation: winningShadowTwo 1.33s;
+    -webkit-animation: winningShadowTwo 1.33s;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.trophyBg {
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.trophy {
+    background-image: url('trophy.svg');
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 300px;
+    filter: invert(1);
+    margin-top: 180px;
+}
+
+
+@-webkit-keyframes moveInTop {
+    0% {
+        transform: translate(0, -100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes moveInRight {
+    0% {
+        transform: translate(100%, 0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes blurIn {
+    0% {
+        -webkit-filter: blur(4px);
+    }
+
+    100% {
+        -webkit-filter: blur(0px);
+    }
+}
+
+@-webkit-keyframes rainbow {
+    0% {
+        color: red;
+    }
+
+    20% {
+        color: green;
+    }
+
+    40% {
+        color: blue;
+    }
+
+    60% {
+        color: yellow;
+    }
+
+    80% {
+        color: pink;
+    }
+
+    100% {
+        color: violet;
+    }
+}
+
+/* totally sick keyframe animation for showing the finished state */
+@-webkit-keyframes winningShadow {
+    33% {
+        transform: scale(1.5);
+        text-shadow: 1px 1px rgba(166, 182, 108, 0.66), 2px 2px rgba(166, 182, 108, 0.66), 3px 3px rgba(166, 182, 108, 0.66), 4px 4px rgba(166, 182, 108, 0.66), 5px 5px rgba(166, 182, 108, 0.66), 6px 6px rgba(166, 182, 108, 0.66), 7px 7px rgba(166, 182, 108, 0.66), 8px 8px rgba(166, 182, 108, 0.66), 9px 9px rgba(166, 182, 108, 0.66), 10px 10px rgba(166, 182, 108, 0.66);
+    }
+
+    66% {
+        text-shadow: -1px -1px rgba(166, 182, 108, 0.66), -2px -2px rgba(166, 182, 108, 0.66), -3px -3px rgba(166, 182, 108, 0.66), -4px -4px rgba(166, 182, 108, 0.66), -5px -5px rgba(166, 182, 108, 0.66), -6px -6px rgba(166, 182, 108, 0.66), -7px -7px rgba(166, 182, 108, 0.66), -8px -8px rgba(166, 182, 108, 0.66), -9px -9px rgba(166, 182, 108, 0.66), -10px -10px rgba(166, 182, 108, 0.66);
+    }
+
+    99% {
+        transform: scale(1);
+        text-shadow: 0px 0px rgba(166, 182, 108, 0.66);
+    }
+}
+
+@-webkit-keyframes winningShadowTwo {
+    from {
+        text-shadow: 0px 0px rgba(166, 182, 108, 0.66);
+    }
+
+    to {
+        font-size: 50pt;
+        text-shadow: -1px -1px rgba(166, 182, 108, 0.66), -2px -2px rgba(166, 182, 108, 0.66), -3px -3px rgba(166, 182, 108, 0.66), -4px -4px rgba(166, 182, 108, 0.66), -5px -5px rgba(166, 182, 108, 0.66), -6px -6px rgba(166, 182, 108, 0.66), -7px -7px rgba(166, 182, 108, 0.66), -8px -8px rgba(166, 182, 108, 0.66), -9px -9px rgba(166, 182, 108, 0.66), -10px -10px rgba(166, 182, 108, 0.66), -11px -11px rgba(166, 182, 108, 0.66), -12px -12px rgba(166, 182, 108, 0.66);
+    }
+}
+
+@font-face {
+    font-family: 'WhiteFlame';
+    src: url('WhiteFlame.ttf') format('truetype');
+}

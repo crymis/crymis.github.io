@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>100 Days of Push-ups</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="bg">
+    <main>
+        <h3 id="today"></h3>
+        <div class="parallax-wrapper">
+            <div class="parallax-container" data-jkit="[parallax:strength=0.3;axis=both]">
+                <h1 id="days" class="parallax"></h1>
+            </div>
+            <div class="parallax-container" data-jkit="[parallax:strength=0.3;axis=both]">
+                <h2 id="subtitle" class="parallax"></h2>
+            </div>
+        </div>
+        <div id="checkbox-container">
+            <input type="checkbox" id="pushup-check">
+            <label for="pushup-check">HAVE YOU DONE YOUR PUSH-UPS TODAY?</label>
+        </div>
+        <p id="quote"></p>
+        <p id="quote-info"></p>
+        <h1 id="madeIt"></h1>
+
+        <div class="trophyBg">
+            <div class="trophy"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>CREATED BY <a href="https://github.com/crymis">CRYMIS</a> <br /><br /> IMAGES OF <a href="http://giphy.com/"
+                target="_blank" id="giphyapi">GIPHY<span></p>
+    </footer>
+    <audio controls autoplay loop id="music">
+        <source id="source" src="pushit.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="jkit_parallax/jquery-1.9.1.min.js"></script>
+    <script src="jkit_parallax/jquery.jkit.custom.1.2.16.min.js"></script>
+    <script>
+
+        /* some quotes */
+        const quotes = [
+            "WORK HARD",
+            "UNLEASH THE BEAST",
+            "NEVER GIVE UP",
+            "ALMOST THERE",
+            "YOU ARE A MACHINE",
+            "NOTHING CAN STOP YOU",
+            "FEEL THE BURN",
+            "PUSH YOUR LIMITS",
+            "STAY STRONG",
+            "MAKE IT HAPPEN",
+            "BELIEVE IN YOURSELF",
+            "EARN YOUR VICTORY"
+        ];
+
+
+        /* calculate date */
+        const start = Math.floor(new Date(2026, 0, 10).getTime() / 1000 / 60 / 60 / 24);
+        const now = Math.floor(Date.now() / 1000 / 60 / 60 / 24);
+        const days = now - start;
+        const OFFSET = 20;
+
+        const giphyJson = `https://api.giphy.com/v1/gifs/search?api_key=63mUfxHHR8fvH1UWcZuamrQZujuhmZDK&q=push+ups&limit=1&offset=${days}&rating=r&lang=en&bundle=messaging_non_clips`;
+        let imageUrl = '';
+        // fetch giphy json
+        const giphyResponse = fetch(giphyJson)
+            .then(response => response.json())
+            .then(json => {
+                imageUrl = json.data[0].images.original.webp;
+                document.getElementById("bg").setAttribute("style", "background-image: url(" + imageUrl + ")");
+            })
+            .catch(error => {
+                console.error('Error fetching Giphy API:', error);
+            });
+
+        document.title = 100 + " Days Push-Ups";
+
+        document.getElementById("today").innerHTML = new Date().toLocaleDateString('de-DE', {
+            weekday: undefined,
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+        }) + " - DAY " + days;
+        document.getElementById("days").innerHTML = days + OFFSET - 1;
+        document.getElementById("subtitle").innerHTML = "PUSH-UPS TODAY";
+        document.getElementById("quote").innerHTML = days * (days + 1) / 2 + (OFFSET - 1) + " PUSH-UPS DONE IN TOTAL";
+
+        document.getElementById("giphyapi").addEventListener('click', function () {
+            document.getElementById("bg").setAttribute("style", "background-image: url(api_giphy_header.gif)");
+        });
+
+        document.getElementById("pushup-check").addEventListener('change', function () {
+            if (this.checked) {
+                $('#checkbox-container').fadeOut(500, function () {
+                    $('#quote').css('display', 'flex').hide().fadeIn(500);
+                });
+            }
+        });
+
+        $(document).ready(function () {
+            $('body').jKit();
+            var audio = document.getElementById('music');
+            // center quote
+            if (days === 50) {
+                $("#days").addClass('winningShadowTwo');
+                $("#subtitle").addClass('winningShadowTwo');
+                $('#madeIt').html("NICE! YOU ARE HALF THROUGH! KEEP GOING!");
+                $('.parallax-container').css('top', '-200px');
+            }
+            if (days > 94 && days < 101) {
+                audio.src = "epic.mp3";
+                audio.load();
+                audio.play();
+            }
+            if (days === 95) {
+                $('#quote').html(quotes[Math.floor(Math.random() * quotes.length)]);// random quote
+            }
+            if (days === 96) {
+                $('#quote').html(quotes[Math.floor(Math.random() * quotes.length)]);// random quote
+            }
+            if (days === 97) {
+                $('#quote').html(quotes[Math.floor(Math.random() * quotes.length)]);// random quote
+            }
+            if (days === 98) {
+                $('#quote').html(quotes[Math.floor(Math.random() * quotes.length)]);// random quote
+            }
+            if (days === 99) {
+                $('#quote').html(quotes[Math.floor(Math.random() * quotes.length)]);// random quote
+            }
+            if (days === 100) {
+                $("#days").addClass('winningShadow');
+                $("#subtitle").addClass('winningShadow');
+                $('#madeIt').html("GO GET 'EM");
+                $('#quote').html("YOU DID 5070 PUSH-UPS IN TOTAL");
+                $('.parallax-container').css('top', '300px');
+                $('.trophyBg').css('display', 'flex');
+                audio.src = "epic.mp3";
+                audio.load();
+                audio.play();
+            }
+            if (days > 100) {
+                document.getElementById("days").innerHTML = 100;
+                document.getElementById("subtitle").innerHTML = "PUSH-UPS CHALLENGE";
+                $('#quote').html("YOU DID (AT LEAST) 5070 PUSH-UPS IN TOTAL");
+                $('#quote-info').html("SINCE 10.10.2016");
+                $('.parallax-container').css('top', '-100px');
+                audio.src = "epic.mp3";
+                audio.load();
+                audio.play();
+            }
+        });
+    </script>
+</body>
+
+</html>
