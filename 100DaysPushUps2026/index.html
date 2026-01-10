@@ -125,6 +125,36 @@
         $(document).ready(function () {
             $('body').jKit();
             var audio = document.getElementById('music');
+
+            // Add gyroscope-based parallax for mobile devices
+            if (window.DeviceOrientationEvent && /Mobi|Android/i.test(navigator.userAgent)) {
+                window.addEventListener('deviceorientation', function (event) {
+                    // Get orientation angles
+                    const beta = event.beta;  // -180 to 180 (front to back tilt)
+                    const gamma = event.gamma; // -90 to 90 (left to right tilt)
+
+                    // Normalize values to a range suitable for parallax effect
+                    // Limit the tilt range to make it more comfortable
+                    const maxTilt = 30; // degrees
+                    const normalizedX = Math.max(-1, Math.min(1, gamma / maxTilt));
+                    const normalizedY = Math.max(-1, Math.min(1, (beta - 45) / maxTilt)); // offset beta by 45 for natural holding position
+
+                    // Apply parallax effect with different strengths
+                    const strength = 20; // pixels of movement
+                    $('.parallax').each(function () {
+                        const $elem = $(this);
+                        const containerStrength = parseFloat($elem.parent().attr('data-strength') || 0.3);
+                        const moveX = normalizedX * strength * containerStrength;
+                        const moveY = normalizedY * strength * containerStrength;
+
+                        $elem.css({
+                            'transform': `translate(${moveX}px, ${moveY}px)`,
+                            'transition': 'transform 0.1s ease-out'
+                        });
+                    });
+                }, true);
+            }
+
             // center quote
             if (days === 50) {
                 $("#days").addClass('winningShadowTwo');
