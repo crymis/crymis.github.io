@@ -20,7 +20,7 @@
         <h3 id="today"></h3>
         <div class="parallax-wrapper">
             <div class="parallax-container" data-jkit="[parallax:strength=0.3;axis=both]">
-                <h1 id="days" class="parallax"></h1>
+                <h1 id="pushups" class="parallax"></h1>
             </div>
             <div class="parallax-container" data-jkit="[parallax:strength=0.3;axis=both]">
                 <h2 id="subtitle" class="parallax"></h2>
@@ -50,29 +50,12 @@
     <script src="jkit_parallax/jquery-1.9.1.min.js"></script>
     <script src="jkit_parallax/jquery.jkit.custom.1.2.16.min.js"></script>
     <script>
-
-        /* some quotes */
-        const quotes = [
-            "WORK HARD",
-            "UNLEASH THE BEAST",
-            "NEVER GIVE UP",
-            "ALMOST THERE",
-            "YOU ARE A MACHINE",
-            "NOTHING CAN STOP YOU",
-            "FEEL THE BURN",
-            "PUSH YOUR LIMITS",
-            "STAY STRONG",
-            "MAKE IT HAPPEN",
-            "BELIEVE IN YOURSELF",
-            "EARN YOUR VICTORY"
-        ];
-
-
         /* calculate date */
         const start = Math.floor(new Date(2026, 0, 10).getTime() / 1000 / 60 / 60 / 24);
         const now = Math.floor(Date.now() / 1000 / 60 / 60 / 24);
         const days = now - start;
         const OFFSET = 20;
+        const pushUpsWithOffset = days + OFFSET - 1;
 
         const giphyJson = `https://api.giphy.com/v1/gifs/search?api_key=63mUfxHHR8fvH1UWcZuamrQZujuhmZDK&q=push+ups&limit=1&offset=${days}&rating=r&lang=en&bundle=messaging_non_clips`;
         let imageUrl = '';
@@ -95,9 +78,10 @@
             month: '2-digit',
             day: '2-digit'
         }) + " - DAY " + days;
-        document.getElementById("days").innerHTML = days + OFFSET - 1;
+        document.getElementById("pushups").innerHTML = pushUpsWithOffset;
         document.getElementById("subtitle").innerHTML = "PUSH-UPS TODAY";
-        document.getElementById("quote").innerHTML = days * (days + 1) / 2 + (OFFSET - 1) + " PUSH-UPS DONE IN TOTAL";
+        // 20 + 21 + 22
+        document.getElementById("quote").innerHTML = (((days - 1) * days) / 2) + (days * OFFSET) + " PUSH-UPS DONE IN TOTAL";
 
         document.getElementById("giphyapi").addEventListener('click', function () {
             document.getElementById("bg").setAttribute("style", "background-image: url(api_giphy_header.gif)");
@@ -122,6 +106,21 @@
             }
         });
 
+        const quotes = [
+            "WORK HARD",
+            "UNLEASH THE BEAST",
+            "NEVER GIVE UP",
+            "ALMOST THERE",
+            "YOU ARE A MACHINE",
+            "NOTHING CAN STOP YOU",
+            "FEEL THE BURN",
+            "PUSH YOUR LIMITS",
+            "STAY STRONG",
+            "MAKE IT HAPPEN",
+            "BELIEVE IN YOURSELF",
+            "EARN YOUR VICTORY"
+        ];
+
         $(document).ready(function () {
             $('body').jKit();
             var audio = document.getElementById('music');
@@ -133,19 +132,21 @@
                     const beta = event.beta;  // -180 to 180 (front to back tilt)
                     const gamma = event.gamma; // -90 to 90 (left to right tilt)
 
+                    if (beta === null || gamma === null) return;
+
                     // Normalize values to a range suitable for parallax effect
                     // Limit the tilt range to make it more comfortable
-                    const maxTilt = 30; // degrees
+                    const maxTilt = 25; // degrees
                     const normalizedX = Math.max(-1, Math.min(1, gamma / maxTilt));
-                    const normalizedY = Math.max(-1, Math.min(1, (beta - 45) / maxTilt)); // offset beta by 45 for natural holding position
+                    const normalizedY = Math.max(-1, Math.min(1, (beta - 90) / maxTilt)); // offset beta by 90 for portrait holding position
 
                     // Apply parallax effect with different strengths
-                    const strength = 20; // pixels of movement
+                    const strengthMultiplier = 50; // pixels of movement
                     $('.parallax').each(function () {
                         const $elem = $(this);
-                        const containerStrength = parseFloat($elem.parent().attr('data-strength') || 0.3);
-                        const moveX = normalizedX * strength * containerStrength;
-                        const moveY = normalizedY * strength * containerStrength;
+                        // Use a default strength of 1 if no data attribute
+                        const moveX = normalizedX * strengthMultiplier;
+                        const moveY = normalizedY * strengthMultiplier;
 
                         $elem.css({
                             'transform': `translate(${moveX}px, ${moveY}px)`,
@@ -157,7 +158,7 @@
 
             // center quote
             if (days === 50) {
-                $("#days").addClass('winningShadowTwo');
+                $("#pushups").addClass('winningShadowTwo');
                 $("#subtitle").addClass('winningShadowTwo');
                 $('#madeIt').html("NICE! YOU ARE HALF THROUGH! KEEP GOING!");
                 $('.parallax-container').css('top', '-200px');
@@ -183,7 +184,7 @@
                 $('#quote').html(quotes[Math.floor(Math.random() * quotes.length)]);// random quote
             }
             if (days === 100) {
-                $("#days").addClass('winningShadow');
+                $("#pushups").addClass('winningShadow');
                 $("#subtitle").addClass('winningShadow');
                 $('#madeIt').html("GO GET 'EM");
                 $('#quote').html("YOU DID 5070 PUSH-UPS IN TOTAL");
@@ -194,7 +195,7 @@
                 audio.play();
             }
             if (days > 100) {
-                document.getElementById("days").innerHTML = 100;
+                document.getElementById("pushups").innerHTML = 100;
                 document.getElementById("subtitle").innerHTML = "PUSH-UPS CHALLENGE";
                 $('#quote').html("YOU DID (AT LEAST) 5070 PUSH-UPS IN TOTAL");
                 $('#quote-info').html("SINCE 10.10.2016");
