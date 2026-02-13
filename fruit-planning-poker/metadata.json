@@ -1,0 +1,5 @@
+{
+  "name": "Fruit Planning Poker",
+  "description": "A playful Scrum estimation tool using fruits instead of Fibonacci numbers. Features AI-powered 'Fruit Coach' insights to help teams estimate story points.",
+  "requestFramePermissions": []
+}
