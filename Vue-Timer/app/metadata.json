@@ -1,0 +1,5 @@
+{
+  "name": "VueFlow Timer",
+  "description": "A high-fidelity countdown timer featuring the iconic Vue.js aesthetic with smooth animations and precise hour/minute control.",
+  "requestFramePermissions": []
+}
